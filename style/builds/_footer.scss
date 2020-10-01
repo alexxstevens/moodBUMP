@@ -2,6 +2,7 @@ div.footer {
   position: fixed;
   left: 0;
   bottom: 0;
+  height: 13%;
   width: 100%;
   color: #000000;
   z-index: 999;
@@ -24,6 +25,8 @@ div.footer div.container img.nav {
   height: 50px;
   width: 50px;
   margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 div.footer div.container img.home {

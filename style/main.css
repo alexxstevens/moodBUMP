@@ -1,6 +1,8 @@
 div.head-foot {
   background-color: white;
-  vw: 100;
+  width: 100%;
+  position: fixed;
+  height: 70px;
 }
 
 div.head-foot img#logo {
@@ -30,6 +32,7 @@ div.footer {
   position: fixed;
   left: 0;
   bottom: 0;
+  height: 13%;
   width: 100%;
   color: #000000;
   z-index: 999;
@@ -52,6 +55,8 @@ div.footer div.container img.nav {
   height: 50px;
   width: 50px;
   margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 div.footer div.container img.home {
@@ -77,24 +82,53 @@ body {
 
 div#main {
   background-color: rgba(178, 255, 245, 0.4);
-  position: absolute;
-  height: 60%;
+  width: 100%;
+  padding-top: 2px;
+  padding-bottom: 100px;
+  position: fixed;
+  top: 70px;
+}
+
+div.highlight {
+  background-color: white;
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+div.highlight ul {
+  line-height: 1.8;
+  list-style-type: circle;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+div.highlight ul li a {
+  color: #616161;
+  text-decoration: none;
 }
 
 h2.heading {
   color: #1f7882;
   font-weight: 900;
   font-size: 2em;
-  margin-left: 5%;
-  margin-top: 5%;
-  margin-bottom: 0;
+  padding: 2%;
+  margin-bottom: 2%;
+}
+
+h3.heading {
+  color: #1f7882;
+  font-weight: 900;
+  margin-left: 2%;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
 
 p.highlight {
   color: #1f7882;
   font-weight: 200;
+  font-size: 1.2em;
   background-color: white;
-  padding: 3%;
+  padding: 5%;
   margin-top: 0;
 }
 
@@ -105,22 +139,22 @@ span.highlight {
 
 h3.contrast {
   text-align: center;
-  font-size: 1.3em;
-  margin-bottom: 0;
+  font-size: 1.8em;
+  padding-top: 1%;
+  margin: 0;
 }
 
 p.contrast {
   padding-left: 5%;
-  padding-right: 3%;
-  font-size: 1em;
+  padding-right: 5%;
+  font-size: 1.2em;
   margin-bottom: 0;
   padding-bottom: 0;
   text-align: center;
+  padding-top: 0;
 }
 
-body {
-  font-family: "Overpass", sans-serif;
-  padding: 0;
-  margin: 0;
+img#arrow {
+  padding-left: 2%;
 }
 /*# sourceMappingURL=main.css.map */

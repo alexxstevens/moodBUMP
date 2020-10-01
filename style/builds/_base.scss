@@ -6,24 +6,51 @@ body {
 
 div#main {
   background-color: $backgroundColor;
-  position: absolute;
-  height: 60%;
+  width: 100%;
+  padding-top: 2px;
+  padding-bottom: 100px;
+  position: fixed;
+  top: 70px;
+}
+
+div.highlight {
+  background-color: white;
+  padding-top: 0px;
+  margin-top: 0px;
+  ul {
+    line-height: 1.8;
+    list-style-type: circle;
+    margin-top: 0px;
+    padding-top: 0px;
+    li a {
+      color: $primaryTextColor;
+      text-decoration: none;
+    }
+  }
 }
 
 h2.heading {
   color: $headingTextColor;
   font-weight: map-get($font-weights, bold);
   font-size: 2em;
-  margin-left: 5%;
-  margin-top: 5%;
-  margin-bottom: 0;
+  padding: 2%;
+  margin-bottom: 2%;
+}
+
+h3.heading {
+  color: $headingTextColor;
+  font-weight: map-get($font-weights, bold);
+  margin-left: 2%;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
 
 p.highlight {
   color: $headingTextColor;
   font-weight: map-get($font-weights, regular);
+  font-size: 1.2em;
   background-color: white;
-  padding: 3%;
+  padding: 5%;
   margin-top: 0;
 }
 
@@ -34,15 +61,22 @@ span.highlight {
 
 h3.contrast {
   text-align: center;
-  font-size: 1.3em;
-  margin-bottom: 0;
+  font-size: 1.8em;
+  padding-top: 1%;
+  margin: 0;
 }
 
 p.contrast {
   padding-left: 5%;
-  padding-right: 3%;
-  font-size: 1em;
+  padding-right: 5%;
+  font-size: 1.2em;
   margin-bottom: 0;
   padding-bottom: 0;
   text-align: center;
+  padding-top: 0;
+}
+
+//welcome page
+img#arrow {
+  padding-left: 2%;
 }
