@@ -2,7 +2,8 @@ div.head-foot {
   background-color: white;
   width: 100%;
   position: fixed;
-  height: 70px;
+  min-height: 70px;
+  z-index: 9998;
 }
 
 div.head-foot img#logo {
