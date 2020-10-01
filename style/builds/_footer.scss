@@ -4,6 +4,7 @@ div.footer {
   bottom: 0;
   width: 100%;
   color: #000000;
+  z-index: 999;
 }
 
 div.footer div.container {
@@ -33,5 +34,11 @@ div.footer div.container img.home {
 
 div.footer div.container h5 {
   margin: 0 auto;
+}
+
+a.footer,
+h5.footer {
+  text-decoration: none;
+  color: black;
 }
 /*# sourceMappingURL=main.css.map */

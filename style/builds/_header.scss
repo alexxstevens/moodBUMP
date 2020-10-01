@@ -1,11 +1,15 @@
 div.head-foot {
   background-color: white;
+  vw: 100;
 }
 
 div.head-foot img#logo {
   margin: 0 auto;
   display: block;
   width: 80%;
+  top: 0;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 div.head-foot h1 {

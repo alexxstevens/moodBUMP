@@ -1,15 +1,15 @@
-body {
-  font-family: "Overpass", sans-serif;
-}
-
 div.head-foot {
   background-color: white;
+  vw: 100;
 }
 
 div.head-foot img#logo {
   margin: 0 auto;
   display: block;
   width: 80%;
+  top: 0;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 div.head-foot h1 {
@@ -25,12 +25,14 @@ div.head-foot h1 span.BUMP {
   color: #81dfe6;
   font-weight: 900;
 }
+
 div.footer {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   color: #000000;
+  z-index: 999;
 }
 
 div.footer div.container {
@@ -38,8 +40,8 @@ div.footer div.container {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -60,5 +62,65 @@ div.footer div.container img.home {
 
 div.footer div.container h5 {
   margin: 0 auto;
+}
+
+a.footer,
+h5.footer {
+  text-decoration: none;
+  color: black;
+}
+body {
+  font-family: "Overpass", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+div#main {
+  background-color: rgba(178, 255, 245, 0.4);
+  position: absolute;
+  height: 60%;
+}
+
+h2.heading {
+  color: #1f7882;
+  font-weight: 900;
+  font-size: 2em;
+  margin-left: 5%;
+  margin-top: 5%;
+  margin-bottom: 0;
+}
+
+p.highlight {
+  color: #1f7882;
+  font-weight: 200;
+  background-color: white;
+  padding: 3%;
+  margin-top: 0;
+}
+
+span.highlight {
+  font-weight: 400;
+  color: #1f7882;
+}
+
+h3.contrast {
+  text-align: center;
+  font-size: 1.3em;
+  margin-bottom: 0;
+}
+
+p.contrast {
+  padding-left: 5%;
+  padding-right: 3%;
+  font-size: 1em;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  text-align: center;
+}
+
+body {
+  font-family: "Overpass", sans-serif;
+  padding: 0;
+  margin: 0;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,48 @@
+body {
+  font-family: "Overpass", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+div#main {
+  background-color: $backgroundColor;
+  position: absolute;
+  height: 60%;
+}
+
+h2.heading {
+  color: $headingTextColor;
+  font-weight: map-get($font-weights, bold);
+  font-size: 2em;
+  margin-left: 5%;
+  margin-top: 5%;
+  margin-bottom: 0;
+}
+
+p.highlight {
+  color: $headingTextColor;
+  font-weight: map-get($font-weights, regular);
+  background-color: white;
+  padding: 3%;
+  margin-top: 0;
+}
+
+span.highlight {
+  font-weight: map-get($font-weights, medium);
+  color: $headingTextColor;
+}
+
+h3.contrast {
+  text-align: center;
+  font-size: 1.3em;
+  margin-bottom: 0;
+}
+
+p.contrast {
+  padding-left: 5%;
+  padding-right: 3%;
+  font-size: 1em;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  text-align: center;
+}
