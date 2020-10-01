@@ -1,0 +1,64 @@
+body {
+  font-family: "Overpass", sans-serif;
+}
+
+div.head-foot {
+  background-color: white;
+}
+
+div.head-foot img#logo {
+  margin: 0 auto;
+  display: block;
+  width: 80%;
+}
+
+div.head-foot h1 {
+  color: #616161;
+  font-weight: 200;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 4em;
+}
+
+div.head-foot h1 span.BUMP {
+  color: #81dfe6;
+  font-weight: 900;
+}
+div.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #000000;
+}
+
+div.footer div.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-top: 1px solid black;
+}
+
+div.footer div.container img.nav {
+  height: 50px;
+  width: 50px;
+  margin-top: 10px;
+}
+
+div.footer div.container img.home {
+  height: 50px;
+  width: 55px;
+  margin-top: 10px;
+}
+
+div.footer div.container h5 {
+  margin: 0 auto;
+}
+/*# sourceMappingURL=main.css.map */
