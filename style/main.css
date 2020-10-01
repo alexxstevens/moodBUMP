@@ -107,6 +107,23 @@ div.highlight ul li a {
   text-decoration: none;
 }
 
+div#border {
+  background-color: white;
+  border: 1px solid #1f7882;
+  border-radius: 25px;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+div#border ul {
+  margin: 5px;
+}
+
+div#border ul li {
+  font-weight: 900;
+  color: #1f7882;
+}
+
 h2.heading {
   color: #1f7882;
   font-weight: 900;
@@ -121,20 +138,6 @@ h3.heading {
   margin-left: 2%;
   margin-bottom: 0px;
   padding-bottom: 0px;
-}
-
-p.highlight {
-  color: #1f7882;
-  font-weight: 200;
-  font-size: 1.2em;
-  background-color: white;
-  padding: 5%;
-  margin-top: 0;
-}
-
-span.highlight {
-  font-weight: 400;
-  color: #1f7882;
 }
 
 h3.contrast {
@@ -152,6 +155,24 @@ p.contrast {
   padding-bottom: 0;
   text-align: center;
   padding-top: 0;
+}
+
+p.highlight {
+  color: #1f7882;
+  font-weight: 200;
+  font-size: 1.2em;
+  background-color: white;
+  padding: 5%;
+  margin-top: 0;
+}
+
+span.highlight {
+  font-weight: 400;
+  color: #1f7882;
+}
+
+span.underline {
+  text-decoration: underline;
 }
 
 img#arrow {
