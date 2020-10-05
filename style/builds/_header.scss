@@ -2,7 +2,8 @@ div.head-foot {
   background-color: white;
   width: 100%;
   position: fixed;
-  min-height: 70px;
+  min-height: 10%;
+  border-bottom: 5px solid rgba(#b2fff5, 0.4);
   z-index: 9998;
 }
 

@@ -1,17 +1,24 @@
+html,
 body {
   font-family: "Overpass", sans-serif;
   padding: 0;
   margin: 0;
-  height: fit-content;
+  height: 110%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
 }
 
 div#main {
   background-color: $backgroundColor;
   width: 100%;
   padding-top: 2px;
-  padding-bottom: 100px;
-  position: fixed;
   top: 70px;
+  height: 100%;
 }
 
 div.highlight {
@@ -107,6 +114,81 @@ span.highlight {
 
 span.underline {
   text-decoration: underline;
+}
+
+//HOME BASE
+ol.goals {
+  li.goals {
+    color: $primaryTextColor;
+    font-weight: map-get($font-weights, bold);
+    padding: 2%;
+    font-size: 1.2em;
+  }
+}
+
+h3.goals {
+  font-size: 1.5em;
+}
+
+div.slidecontainer {
+  padding-bottom: 0;
+  text-align: center;
+}
+
+span.inline {
+  width: 100%;
+  height: auto;
+}
+
+.slidecontainer img {
+  width: 76%;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 5%;
+}
+
+input.slidecontainer {
+  -webkit-appearance: none;
+  width: 70%;
+  height: 15px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+}
+
+div.mood {
+  text-align: center;
+}
+
+p.mood {
+  color: $primaryTextColor;
+  font-weight: map-get($font-weights, bold);
+  font-size: 1.2em;
+  padding-top: 2%;
+  text-align: left;
+  margin-left: 4%;
+}
+
+button.moodBTN {
+  background-color: $buttonColor;
+  font-weight: map-get($font-weights, bold);
+  color: $headingTextColor;
+  font-size: 14px;
+  padding: 6px 12px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  margin-bottom: 5%;
+  font-size: 1.2em;
+  width: 70%;
+  padding-right: 5%;
+}
+
+input.moodBTN:hover {
+  border: 1px solid $headingTextColor;
+  box-shadow: 1px 2px #888888;
 }
 
 //welcome page
