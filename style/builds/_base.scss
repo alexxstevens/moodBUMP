@@ -191,6 +191,13 @@ input.moodBTN:hover {
   box-shadow: 1px 2px #888888;
 }
 
+p#subNote {
+  font-style: italic;
+  font-weight: map-get($font-weights, regular);
+  font-size: 0.9em;
+  padding-bottom: 5%;
+}
+
 //welcome page
 img#arrow {
   padding-left: 2%;

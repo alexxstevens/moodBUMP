@@ -9,6 +9,7 @@ $(document).ready(function () {
         text: "Confirm",
         id: "confirmMood",
         click: function () {
+          setRecord();
           $(this).dialog("close"); //will update to record to DB
         },
       },
@@ -38,12 +39,7 @@ $(document).ready(function () {
   function setDate() {
     const now = new Date();
     const date =
-      now.getUTCMonth() +
-      1 +
-      "/" +
-      now.getUTCDate() +
-      "/" +
-      now.getUTCFullYear();
+      now.getMonth() + 1 + "/" + now.getDate() + "/" + now.getFullYear();
     return date;
   }
 
@@ -51,6 +47,16 @@ $(document).ready(function () {
     const now = new Date();
     let time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
     return time;
+  }
+
+  function setRecord() {
+    let date = setDate();
+    let time = setTime();
+    lastRecord = date + " " + time;
+    //update subNote"Last recorded on:
+    document.getElementById("subNote").innerHTML =
+      "Last recorded on: " + lastRecord;
+    console.log(lastRecord);
   }
 
   //fill dialog box for set input value
@@ -61,7 +67,6 @@ $(document).ready(function () {
     setDate() +
     " at " +
     setTime();
-
   // update the input value on slide; fill dialog box for updated input value
   slider.oninput = function () {
     output.innerHTML = this.value;
@@ -74,11 +79,4 @@ $(document).ready(function () {
       " at " +
       setTime();
   };
-
-  //submit mood value
-  $(document).ready(function () {
-    $("#confirmMood").click(function () {
-      $("#moodForm").submit(); // Submit the form
-    });
-  });
 });
