@@ -346,17 +346,15 @@ textarea {
 }
 
 //MANTRAS
-.fa-trash-alt {
-  float: right;
-}
-
-//NOTIFICATION TOGGLE BUTTON
 div#notification {
   background-color: white;
   padding-bottom: 2%;
   padding-left: 3%;
   padding-right: 0;
   padding-top: 2.5%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  border: 1px solid lightgrey;
   h5 {
     display: inline;
     font-size: 1.2em;
@@ -364,9 +362,20 @@ div#notification {
   }
 }
 
+.fa-trash-alt {
+  float: right;
+}
+
+p.mantra {
+  padding: 5%;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+//NOTIFICATION TOGGLE BUTTON
+
 .switch {
   position: relative;
-  display: inline-block;
   width: 45px;
   height: 25px;
   float: right;

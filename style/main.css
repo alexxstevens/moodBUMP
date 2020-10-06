@@ -434,16 +434,15 @@ textarea {
   border: none;
 }
 
-.fa-trash-alt {
-  float: right;
-}
-
 div#notification {
   background-color: white;
   padding-bottom: 2%;
   padding-left: 3%;
   padding-right: 0;
   padding-top: 2.5%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  border: 1px solid lightgrey;
 }
 
 div#notification h5 {
@@ -452,9 +451,18 @@ div#notification h5 {
   color: #616161;
 }
 
+.fa-trash-alt {
+  float: right;
+}
+
+p.mantra {
+  padding: 5%;
+  font-size: 1.5em;
+  text-align: center;
+}
+
 .switch {
   position: relative;
-  display: inline-block;
   width: 45px;
   height: 25px;
   float: right;
