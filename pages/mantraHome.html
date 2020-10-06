@@ -19,8 +19,12 @@
       href="https://use.fontawesome.com/releases/v5.15.0/css/all.css"
       integrity="sha384-OLYO0LymqQ+uHXELyx93kblK5YIS3B2ZfLGBmsJaUyor7CpMTBsahDHByqSuWW+q"
       crossorigin="anonymous"
+      z
     />
     <link href="../style/main.css" rel="stylesheet" />
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script rel="text/javascript" src="../journal_script.js"></script>
   </head>
   <body>
     <header>
@@ -29,39 +33,25 @@
       </div>
     </header>
     <div id="main">
-      <h2 class="heading">User's Mood Goals</h2>
+      <h2 class="heading">Mantras</h2>
+      <div id="notification">
+        <span class="inline">
+          <h5>Daily Mantra Notifications</h5>
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slidertog round"></span> </label
+        ></span>
+      </div>
+      <div class="meditation">
+        <div class="highlight">
+          <p class="mantra">" Self care is not selfish."</p>
+        </div>
+      </div>
 
-      <h3 class="goals heading">Goals:</h3>
-      <div class="highlight goals">
-        <ul class="goals">
-          <!-- will pull from DB//onclick events will be added to dropdown to add to inactive DB or delete from DB-->
-          <li class="goals-edit dropbtn" onclick="myFunction()">
-            Mindfulness
-            <div class="dropdown">
-              <i class="fas fa-ellipsis-h"></i>
-              <div id="myDropdown" class="dropdown-content">
-                <a>Unassign</a>
-                <a class="inactive">Delete</a>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <h3 class="goals heading">Quick Add:</h3>
-      <div class="highlight goals">
-        <ul class="goals">
-          <!-- will pull from DB/ on click event will be added to add to active goal DB-->
-          <li class="goals-edit">
-            Productivity<span class="icon"
-              ><i class="fas fa-plus-circle"></i
-            ></span>
-          </li>
-        </ul>
-      </div>
-      <div id="goalBTN">
-        <a href="customGoal.html"
-          ><button class="moodBTN">Add a Custom Goal</button></a
-        >
+      <div class="meditation">
+        <div class="highlight">
+          <p class="mantra">" Who do I want to be?"</p>
+        </div>
       </div>
 
       <footer>
@@ -130,26 +120,5 @@
         </div>
       </footer>
     </div>
-    <script>
-      /* When the user clicks on the button,
-      toggle between hiding and showing the dropdown content */
-      function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-      }
-
-      // Close the dropdown if the user clicks outside of it
-      $(".goals li").click(function () {
-        if (!event.target.matches(".dropbtn")) {
-          let dropdowns = document.getElementsByClassName("dropdown-content");
-          let i;
-          for (i = 0; i < dropdowns.length; i++) {
-            let openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains("show")) {
-              openDropdown.classList.remove("show");
-            }
-          }
-        }
-      });
-    </script>
   </body>
 </html>

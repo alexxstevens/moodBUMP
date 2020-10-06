@@ -1,4 +1,3 @@
-//HOME BASE SCRIPT
 //create dialog box and buttons
 $(document).ready(function () {
   $("#dialog").dialog({
@@ -7,10 +6,10 @@ $(document).ready(function () {
     buttons: [
       {
         text: "Confirm",
-        id: "confirmMood",
+        id: "confirmDelete",
         click: function () {
-          setRecord();
           $(this).dialog("close"); //will update to record to DB
+          window.location.href = "thoughtJournal.html";
         },
       },
       {
@@ -26,14 +25,6 @@ $(document).ready(function () {
   $("#opener").click(function () {
     $("#dialog").dialog("open");
   });
-
-  //set slider value display in UI
-  let slider = document.getElementById("moodValue");
-  let output = document.getElementById("moodScale");
-  output.innerHTML = slider.value; // Display the default slider value
-
-  //set moodValue
-  let moodValue = document.getElementById("moodValue").value;
 
   //set date
   function setDate() {
@@ -63,11 +54,19 @@ $(document).ready(function () {
   document.getElementById("dialog").innerHTML =
     "Are your sure you want to record the mood score: " + moodValue;
 
-  // update the input value on slide; fill dialog box for updated input value
-  slider.oninput = function () {
-    output.innerHTML = this.value;
-    let moodValue = document.getElementById("moodValue").value;
-    document.getElementById("dialog").innerHTML =
-      "Are your sure you want to record the mood score: " + moodValue;
-  };
+  //set date
+  function setDate() {
+    const now = new Date();
+    const date =
+      now.getMonth() + 1 + "/" + now.getDate() + "/" + now.getFullYear();
+    return date;
+  }
+
+  function setTime() {
+    const now = new Date();
+    let time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+    return time;
+  }
+
+  document.getElementById("date").innerHTML = "Today, " + setDate();
 });

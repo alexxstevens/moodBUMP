@@ -8,7 +8,9 @@
     <meta name="keywords" content="HTML" />
     <meta name="author" content="Alex Stevens" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Goals</title>
+    <title>Home Base</title>
+    <!-- fonts -->
+    <link href="../style/main.css" rel="stylesheet" />
     <!-- main style-->
     <link
       href="https://fonts.googleapis.com/css2?family=Overpass:wght@200;400;900&display=swap"
@@ -20,7 +22,16 @@
       integrity="sha384-OLYO0LymqQ+uHXELyx93kblK5YIS3B2ZfLGBmsJaUyor7CpMTBsahDHByqSuWW+q"
       crossorigin="anonymous"
     />
-    <link href="../style/main.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"
+    />
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
   <body>
     <header>
@@ -31,37 +42,40 @@
     <div id="main">
       <h2 class="heading">User's Mood Goals</h2>
 
-      <h3 class="goals heading">Goals:</h3>
+      <h3 class="goals heading">Minfulness Tools:</h3>
       <div class="highlight goals">
         <ul class="goals">
           <!-- will pull from DB//onclick events will be added to dropdown to add to inactive DB or delete from DB-->
-          <li class="goals-edit dropbtn" onclick="myFunction()">
-            Mindfulness
-            <div class="dropdown">
-              <i class="fas fa-ellipsis-h"></i>
-              <div id="myDropdown" class="dropdown-content">
-                <a>Unassign</a>
-                <a class="inactive">Delete</a>
-              </div>
-            </div>
+          <li class="goals-edit">
+            <a href="thoughtJournal.html">Thought Journal</a>
+            <span class="icon"><i class="far fa-check-circle"></i></span>
+          </li>
+          <li class="goals-edit">
+            <a href="meditation.html">Meditation</a>
+            <span class="icon"><i class="far fa-check-circle"></i></span>
+          </li>
+          <li class="goals-edit">
+            <a href="mantra.html">Mantras</a>
+            <span class="icon"><i class="far fa-check-circle"></i></span>
           </li>
         </ul>
       </div>
-      <h3 class="goals heading">Quick Add:</h3>
+      <h3 class="goals heading">Productivity Tools:</h3>
       <div class="highlight goals">
         <ul class="goals">
-          <!-- will pull from DB/ on click event will be added to add to active goal DB-->
           <li class="goals-edit">
-            Productivity<span class="icon"
-              ><i class="fas fa-plus-circle"></i
-            ></span>
+            <a href="sleepLog.html">Sleep Log</a>
+            <span class="icon"><i class="far fa-check-circle"></i></span>
+          </li>
+          <li class="goals-edit">
+            <a href="powerHour.html">Power Hour</a>
+            <span class="icon"><i class="far fa-check-circle"></i></span>
+          </li>
+          <li class="goals-edit">
+            <a href="affirmation.html">Affirmations</a>
+            <span class="icon"><i class="far fa-check-circle"></i></span>
           </li>
         </ul>
-      </div>
-      <div id="goalBTN">
-        <a href="customGoal.html"
-          ><button class="moodBTN">Add a Custom Goal</button></a
-        >
       </div>
 
       <footer>
@@ -131,24 +145,11 @@
       </footer>
     </div>
     <script>
-      /* When the user clicks on the button,
-      toggle between hiding and showing the dropdown content */
-      function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-      }
-
-      // Close the dropdown if the user clicks outside of it
       $(".goals li").click(function () {
-        if (!event.target.matches(".dropbtn")) {
-          let dropdowns = document.getElementsByClassName("dropdown-content");
-          let i;
-          for (i = 0; i < dropdowns.length; i++) {
-            let openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains("show")) {
-              openDropdown.classList.remove("show");
-            }
-          }
-        }
+        $(this)
+          .children("span")
+          .children("i")
+          .toggleClass("far fa-check-circle fas fa-check-circle");
       });
     </script>
   </body>
