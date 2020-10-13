@@ -21,7 +21,6 @@ div.footer div.container {
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  border-top: 1px solid darkgrey;
 }
 
 div.footer div.container img.nav {
@@ -34,7 +33,7 @@ div.footer div.container img.nav {
 
 div.footer div.container img.home {
   height: 50px;
-  width: 55px;
+  width: 52px;
   margin-top: 10px;
 }
 
@@ -43,8 +42,14 @@ div.footer div.container h5 {
 }
 
 a.footer,
-h5.footer {
+h6.footer {
   text-decoration: none;
   color: black;
+}
+
+h6 {
+  padding-top: 5px;
+  font-size: 0.8em;
+  font-weight: bold;
 }
 /*# sourceMappingURL=main.css.map */

@@ -9,7 +9,6 @@ $(document).ready(function () {
         id: "confirmDelete",
         click: function () {
           $(this).dialog("close"); //will update to record to DB
-          window.location.href = "thoughtJournal.html";
         },
       },
       {
@@ -22,7 +21,12 @@ $(document).ready(function () {
   });
 
   //open dialog box on button click
-  $("#opener").click(function () {
+  $("#opener_1").click(function () {
+    $("#dialog").dialog("open");
+  });
+
+  //open dialog box on button click
+  $("#opener_2").click(function () {
     $("#dialog").dialog("open");
   });
 });

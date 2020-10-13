@@ -6,6 +6,17 @@ body {
   height: 100%;
   overflow: scroll;
   overflow-x: hidden;
+  background-color: $backgroundColor;
+}
+
+main {
+  margin-top: 95px;
+  margin-bottom: 100px;
+}
+
+div.center-block {
+  float: none;
+  margin: 0 auto;
 }
 
 ::-webkit-scrollbar {
@@ -13,119 +24,141 @@ body {
   background: transparent; /* Optional: just make scrollbar invisible */
 }
 
-button a {
+button.btn-primary {
+  background-color: $buttonColor;
+  border: $buttonColor;
   text-decoration: none;
-  font-style: normal;
-  color: $headingTextColor;
+}
+button.btn-primary:hover {
+  background-color: $secondaryButtonColor;
+  border: $secondaryButtonColor;
+  text-decoration: none;
 }
 
-div#main {
-  background-color: $backgroundColor;
-  width: 100%;
-  height: 100%;
-  margin-top: 80px;
+a.clr_underline {
+  text-decoration: none;
 }
 
-div.highlight {
-  background-color: white;
-  padding-top: 0px;
-  margin-top: 0px;
-  ul {
-    line-height: 1.8;
-    list-style-type: circle;
-    margin-top: 0px;
-    padding-top: 0px;
-    li a {
-      color: $primaryTextColor;
-      text-decoration: none;
-    }
-  }
+button.submit {
+  margin-bottom: 5%;
 }
 
-div#border {
-  background-color: white;
-  border: 1px solid $headingTextColor;
-  border-radius: 25px;
-  margin-right: 10%;
-  margin-left: 10%;
-  ul {
-    margin: 5px;
-    li {
-      font-weight: map-get($font-weights, bold);
-      color: $headingTextColor;
-    }
-  }
-}
-
+//load page
 h1.load,
 h3.load {
   text-align: center;
   margin-top: 5px;
   color: $primaryTextColor;
 }
-
 div#space {
   height: 1%;
 }
-
 h1.load {
   font-size: 3em;
   margin-top: 20%;
   margin-bottom: 0px;
 }
 
+//welcome page heading
 h2.heading {
   color: $primaryTextColor;
   font-weight: map-get($font-weights, bold);
   font-size: 2em;
-  padding-top: 8%;
-  padding-bottom: 0;
-  margin-bottom: 0;
-  text-align: left;
 }
 
+//general headings
 h3.heading {
   color: $headingTextColor;
   font-weight: map-get($font-weights, bold);
   margin-left: 2%;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
-  font-size: 0.9em;
 }
 
-h3.contrast {
-  text-align: center;
-  font-size: 1.8em;
-  padding-top: 1%;
-  margin: 0;
-}
-
-p.contrast {
-  padding-left: 5%;
-  padding-right: 5%;
-  font-size: 1.2em;
-  margin-bottom: 0;
-  padding-bottom: 0;
-  text-align: center;
-  padding-top: 0;
-}
-
+//welcome page
 p.highlight {
   color: $headingTextColor;
   font-weight: map-get($font-weights, regular);
   font-size: 1.2em;
   background-color: white;
-  padding: 5%;
-  margin-top: 0;
+  margin-bottom: 0;
+  padding: 10%;
 }
-
+p.tip {
+  background-color: $primaryTextColor;
+  font-weight: map-get($font-weights, regular);
+  color: white;
+  margin-top: 0;
+  font-size: 0.8 em;
+  text-align: left;
+  padding: 1%;
+  padding-left: 4%;
+  border-radius: 2px;
+  box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.6);
+  i {
+    font-size: 1.2em;
+  }
+}
 span.highlight {
   font-weight: map-get($font-weights, medium);
   color: $headingTextColor;
 }
-
+//powerHour page
 span.underline {
   text-decoration: underline;
+}
+
+p.power {
+  color: $headingTextColor;
+  font-weight: map-get($font-weights, regular);
+  font-size: 1.2em;
+  background-color: white;
+  margin-bottom: 0;
+  padding: 5%;
+}
+
+div#border {
+  color: $headingTextColor;
+  font-weight: map-get($font-weights, medium);
+  background-color: white;
+  margin-top: 3%;
+  border-left: 10px solid $headingTextColor;
+  border-right: 10px solid $headingTextColor;
+  margin-right: 20%;
+  margin-left: 20%;
+  padding-top: 5px;
+}
+
+//tools page
+ul.list-group {
+  margin-bottom: 5%;
+  padding: 0;
+  li.list-group-item a {
+    color: $primaryTextColor;
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+  li.list-group-item a:hover {
+    color: black;
+    text-decoration: underline;
+  }
+  span.icon {
+    float: right;
+    font-size: 1.3em;
+    padding: 0mm;
+  }
+}
+button.container {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+div.info {
+  float: right;
+  button.info {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1.5em;
+    float: right;
+  }
 }
 
 //HOME BASE
@@ -136,10 +169,6 @@ ol.goals {
     padding: 2%;
     font-size: 1.3em;
   }
-}
-
-h3.goals {
-  font-size: 1.7em;
 }
 
 div.slidecontainer {
@@ -188,38 +217,11 @@ p.mood {
   margin-left: 4%;
 }
 
-button.moodBTN {
-  background-color: $buttonColor;
-  font-weight: map-get($font-weights, bold);
-  color: $headingTextColor;
-  font-size: 14px;
-  padding: 8px 14px;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  border: 1px solid transparent;
-  margin-bottom: 3%;
-  font-size: 1.4em;
-  width: 75%;
-  padding-right: 5%;
-  border-radius: 8px;
-}
-
-input.moodBTN:hover {
-  border: 1px solid $headingTextColor;
-  box-shadow: 1px 2px #888888;
-}
-
 p#subNote {
   font-style: italic;
   font-weight: map-get($font-weights, regular);
   font-size: 0.9em;
   padding-bottom: 5%;
-}
-
-//welcome page
-img#arrow {
-  padding-left: 2%;
 }
 
 //LOAD PAGE
@@ -327,14 +329,10 @@ form#customGoal {
 }
 
 //TRENDS
-
-img.chart {
-  padding: 4%;
-}
-
-//TOOLS
-.tree {
-  display: none;
+div.chart {
+  padding-top: 3%;
+  padding-bottom: 5%;
+  text-align: center;
 }
 
 //THOUGHT JOURNAL
@@ -432,4 +430,46 @@ input:checked + .slidertog:before {
 
 .slidertog.round:before {
   border-radius: 50%;
+}
+
+//SleepLog
+
+form#sleep {
+  padding: 5%;
+  color: $primaryTextColor;
+  font-weight: bold;
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 5px;
+  }
+}
+
+.chart-sleep {
+  height: 200px;
+  width: 400px;
+}
+
+div.center {
+  text-align: center;
+}
+
+//mediation
+h3.square {
+  color: white;
+  background-color: $secondaryButtonColor;
+  border-radius: 5px;
+  padding: 5px;
+  padding-top: 10px;
+  margin: 0 0 0 0;
+  font-size: 1em;
+  font-weight: map-get($font-weights, medium);
+}
+ul.small {
+  li {
+    font-size: 0.9em;
+  }
 }

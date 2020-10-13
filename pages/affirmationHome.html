@@ -22,13 +22,9 @@
       z
     />
     <link href="../style/main.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"
-    />
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script rel="text/javascript" src="../add_script.js"></script>
+    <script rel="text/javascript" src="../journal_script.js"></script>
   </head>
   <body>
     <header>
@@ -37,33 +33,31 @@
       </div>
     </header>
     <div id="main">
-      <h2 class="heading">Add Mantra</h2>
-      <h3 id="date" class="goals heading"></h3>
-      <div class="highlight goals">
-        <textarea placeholder="Type your mantra entry here..."></textarea>
+      <h2 class="heading">Affirmations</h2>
+      <div id="notification">
+        <span class="inline">
+          <h5>Daily Affirmation Notifications</h5>
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slidertog round"></span> </label
+        ></span>
       </div>
-      <div id="goalBTN">
-        <a href="mantraHome.html"><button class="moodBTN">SUBMIT</button></a>
-      </div>
-      <h3 class="goals heading">Existing Mantras:</h3>
-      <!-- will delete from database when deleted-->
-      <div class="highlight goals">
-        <ul class="goals">
-          <!-- will pull from DB//onclick events will be added to dropdown to add to inactive DB or delete from DB-->
-          <li class="goals-edit">
-            <a class="date" id="opener_1">
-              "Self care is not selfish." <i class="far fa-trash-alt"></i
-            ></a>
-          </li>
-          <li class="goals-edit">
-            <a class="date" id="opener_1">
-              "Who do I want to be?" <i class="far fa-trash-alt"></i
-            ></a>
-          </li>
-        </ul>
-        <div id="dialog" title="Confirm Delete">
-          Are your sure you want to delete this item?
+      <div class="meditation">
+        <div class="highlight">
+          <p class="mantra">"Am I good enough? Yes I am."</p>
         </div>
+      </div>
+
+      <div class="meditation">
+        <div class="highlight">
+          <p class="mantra">"I am deliberate and afraid of nothing."</p>
+        </div>
+      </div>
+
+      <div id="goalBTN">
+        <a href="affirmationAdd.html"
+          ><button class="moodBTN">Edit Affirmations</button></a
+        >
       </div>
 
       <footer>

@@ -1,0 +1,29 @@
+@media only screen and (min-width: 600px) {
+  main {
+    font-size: 1.3em;
+  }
+  h3.heading {
+    font-size: 1.3em;
+  }
+  p.highlight {
+    padding: 7%;
+  }
+  p.tip {
+    font-size: 0.8em;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  main {
+    font-size: 1.5em;
+  }
+  h3.heading {
+    font-size: 1.5em;
+  }
+  p.highlight {
+    padding: 5%;
+  }
+  p.tip {
+    font-size: 0.7em;
+  }
+}

@@ -4,6 +4,7 @@ div.head-foot {
   position: fixed;
   min-height: 10%;
   border-bottom: 1px solid lightgrey;
+  border-top: 1px solid darkgrey;
   z-index: 9998;
 }
 
@@ -53,7 +54,6 @@ div.footer div.container {
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  border-top: 1px solid darkgrey;
 }
 
 div.footer div.container img.nav {
@@ -66,7 +66,7 @@ div.footer div.container img.nav {
 
 div.footer div.container img.home {
   height: 50px;
-  width: 55px;
+  width: 52px;
   margin-top: 10px;
 }
 
@@ -75,9 +75,15 @@ div.footer div.container h5 {
 }
 
 a.footer,
-h5.footer {
+h6.footer {
   text-decoration: none;
   color: black;
+}
+
+h6 {
+  padding-top: 5px;
+  font-size: 0.8em;
+  font-weight: bold;
 }
 html,
 body {
@@ -87,6 +93,17 @@ body {
   height: 100%;
   overflow: scroll;
   overflow-x: hidden;
+  background-color: rgba(178, 255, 245, 0.4);
+}
+
+main {
+  margin-top: 95px;
+  margin-bottom: 100px;
+}
+
+div.center-block {
+  float: none;
+  margin: 0 auto;
 }
 
 ::-webkit-scrollbar {
@@ -96,52 +113,24 @@ body {
   /* Optional: just make scrollbar invisible */
 }
 
-button a {
-  text-decoration: none;
-  font-style: normal;
-  color: #1f7882;
-}
-
-div#main {
-  background-color: rgba(178, 255, 245, 0.4);
-  width: 100%;
-  height: 100%;
-  margin-top: 80px;
-}
-
-div.highlight {
-  background-color: white;
-  padding-top: 0px;
-  margin-top: 0px;
-}
-
-div.highlight ul {
-  line-height: 1.8;
-  list-style-type: circle;
-  margin-top: 0px;
-  padding-top: 0px;
-}
-
-div.highlight ul li a {
-  color: #616161;
+button.btn-primary {
+  background-color: #50a2a8;
+  border: #50a2a8;
   text-decoration: none;
 }
 
-div#border {
-  background-color: white;
-  border: 1px solid #1f7882;
-  border-radius: 25px;
-  margin-right: 10%;
-  margin-left: 10%;
+button.btn-primary:hover {
+  background-color: #2c7c81;
+  border: #2c7c81;
+  text-decoration: none;
 }
 
-div#border ul {
-  margin: 5px;
+a.clr_underline {
+  text-decoration: none;
 }
 
-div#border ul li {
-  font-weight: 900;
-  color: #1f7882;
+button.submit {
+  margin-bottom: 5%;
 }
 
 h1.load,
@@ -165,36 +154,12 @@ h2.heading {
   color: #616161;
   font-weight: 900;
   font-size: 2em;
-  padding-top: 8%;
-  padding-bottom: 0;
-  margin-bottom: 0;
-  text-align: left;
 }
 
 h3.heading {
   color: #1f7882;
   font-weight: 900;
   margin-left: 2%;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
-  font-size: 0.9em;
-}
-
-h3.contrast {
-  text-align: center;
-  font-size: 1.8em;
-  padding-top: 1%;
-  margin: 0;
-}
-
-p.contrast {
-  padding-left: 5%;
-  padding-right: 5%;
-  font-size: 1.2em;
-  margin-bottom: 0;
-  padding-bottom: 0;
-  text-align: center;
-  padding-top: 0;
 }
 
 p.highlight {
@@ -202,8 +167,26 @@ p.highlight {
   font-weight: 200;
   font-size: 1.2em;
   background-color: white;
-  padding: 5%;
+  margin-bottom: 0;
+  padding: 10%;
+}
+
+p.tip {
+  background-color: #616161;
+  font-weight: 200;
+  color: white;
   margin-top: 0;
+  font-size: 0.8 em;
+  text-align: left;
+  padding: 1%;
+  padding-left: 4%;
+  border-radius: 2px;
+  -webkit-box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.6);
+          box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.6);
+}
+
+p.tip i {
+  font-size: 1.2em;
 }
 
 span.highlight {
@@ -215,15 +198,70 @@ span.underline {
   text-decoration: underline;
 }
 
+p.power {
+  color: #1f7882;
+  font-weight: 200;
+  font-size: 1.2em;
+  background-color: white;
+  margin-bottom: 0;
+  padding: 5%;
+}
+
+div#border {
+  color: #1f7882;
+  font-weight: 400;
+  background-color: white;
+  margin-top: 3%;
+  border-left: 10px solid #1f7882;
+  border-right: 10px solid #1f7882;
+  margin-right: 20%;
+  margin-left: 20%;
+  padding-top: 5px;
+}
+
+ul.list-group {
+  margin-bottom: 5%;
+  padding: 0;
+}
+
+ul.list-group li.list-group-item a {
+  color: #616161;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+ul.list-group li.list-group-item a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+ul.list-group span.icon {
+  float: right;
+  font-size: 1.3em;
+  padding: 0mm;
+}
+
+button.container {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+div.info {
+  float: right;
+}
+
+div.info button.info {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 1.5em;
+  float: right;
+}
+
 ol.goals li.goals {
   color: #616161;
   font-weight: 900;
   padding: 2%;
   font-size: 1.3em;
-}
-
-h3.goals {
-  font-size: 1.7em;
 }
 
 div.slidecontainer {
@@ -272,38 +310,11 @@ p.mood {
   margin-left: 4%;
 }
 
-button.moodBTN {
-  background-color: #81dfe6;
-  font-weight: 900;
-  color: #1f7882;
-  font-size: 14px;
-  padding: 8px 14px;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  border: 1px solid transparent;
-  margin-bottom: 3%;
-  font-size: 1.4em;
-  width: 75%;
-  padding-right: 5%;
-  border-radius: 8px;
-}
-
-input.moodBTN:hover {
-  border: 1px solid #1f7882;
-  -webkit-box-shadow: 1px 2px #888888;
-          box-shadow: 1px 2px #888888;
-}
-
 p#subNote {
   font-style: italic;
   font-weight: 200;
   font-size: 0.9em;
   padding-bottom: 5%;
-}
-
-img#arrow {
-  padding-left: 2%;
 }
 
 img#load_icon {
@@ -419,12 +430,10 @@ form#customGoal button.moodBTN {
   margin-top: 5%;
 }
 
-img.chart {
-  padding: 4%;
-}
-
-.tree {
-  display: none;
+div.chart {
+  padding-top: 3%;
+  padding-bottom: 5%;
+  text-align: center;
 }
 
 textarea {
@@ -519,6 +528,45 @@ input:checked + .slidertog:before {
 
 .slidertog.round:before {
   border-radius: 50%;
+}
+
+form#sleep {
+  padding: 5%;
+  color: #616161;
+  font-weight: bold;
+}
+
+form#sleep input[type="date"],
+form#sleep select {
+  width: 100%;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.chart-sleep {
+  height: 200px;
+  width: 400px;
+}
+
+div.center {
+  text-align: center;
+}
+
+h3.square {
+  color: white;
+  background-color: #2c7c81;
+  border-radius: 5px;
+  padding: 5px;
+  padding-top: 10px;
+  margin: 0 0 0 0;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+ul.small li {
+  font-size: 0.9em;
 }
 
 .lds-spinner {
@@ -709,7 +757,7 @@ div.container {
 }
 
 .btn-login {
-  background-color: #81dfe6;
+  background-color: #50a2a8;
   outline: none;
   color: #fff;
   font-size: 14px;
@@ -717,14 +765,14 @@ div.container {
   font-weight: normal;
   padding: 14px 0;
   text-transform: uppercase;
-  border-color: #81dfe6;
+  border-color: #50a2a8;
 }
 
 .btn-login:hover,
 .btn-login:focus {
   color: #fff;
-  background-color: #81dfe6;
-  border-color: #81dfe6;
+  background-color: #50a2a8;
+  border-color: #50a2a8;
 }
 
 .forgot-password {
@@ -739,7 +787,7 @@ div.container {
 }
 
 .btn-register {
-  background-color: #81dfe6;
+  background-color: #50a2a8;
   outline: none;
   color: #fff;
   font-size: 14px;
@@ -747,13 +795,43 @@ div.container {
   font-weight: normal;
   padding: 14px 0;
   text-transform: uppercase;
-  border-color: #81dfe6;
+  border-color: #50a2a8;
 }
 
 .btn-register:hover,
 .btn-register:focus {
   color: #fff;
-  background-color: #81dfe6;
-  border-color: #81dfe6;
+  background-color: #50a2a8;
+  border-color: #50a2a8;
+}
+
+@media only screen and (min-width: 600px) {
+  main {
+    font-size: 1.3em;
+  }
+  h3.heading {
+    font-size: 1.3em;
+  }
+  p.highlight {
+    padding: 7%;
+  }
+  p.tip {
+    font-size: 0.8em;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  main {
+    font-size: 1.5em;
+  }
+  h3.heading {
+    font-size: 1.5em;
+  }
+  p.highlight {
+    padding: 5%;
+  }
+  p.tip {
+    font-size: 0.7em;
+  }
 }
 /*# sourceMappingURL=main.css.map */

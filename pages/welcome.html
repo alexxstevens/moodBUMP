@@ -9,44 +9,64 @@
     <meta name="author" content="Alex Stevens" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to moodBUMP</title>
-    <!-- fonts -->
-    <link href="../style/main.css" rel="stylesheet" />
-    <!-- main style-->
+   <!-- main style-->
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+     <!-- fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Overpass:wght@200;400;900&display=swap"
-      rel="stylesheet"
+      rel="stylesheet" 
     />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="../style/main.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
+      <div class="row">
+      <div class="col center-block">
       <div class="head-foot">
         <h1>mood<span class="BUMP">BUMP</span></h1>
       </div>
-    </header>
-    <div id="main">
-      <h2 class="heading">Welcome, User!</h2>
-      <div>
-        <p class="highlight">
-          Welcome to <span class="highlight">moodBUMP-</span> your own personal
-          assistant to give your mood a bump and help you reach your goals.<br /><br /><span
-            class="highlight"
-            >moodBUMP</span
-          >
-          is a personal companion app that will help train your brain to live
-          everyday with intention.
-        </p>
       </div>
-      <h3 class="contrast">Let's get started!</h3>
-      <p class="contrast">
-        Start by selecting or creating your first goal by tapping on the icon
-        below.
-      </p>
-      <img src="../images/arrow.PNG" id="arrow" />
-    </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="row">
+        <div class="col-sm-10 col-md-8 center-block">
+          <h2 class="heading">Welcome, User!</h2>
+        </div>
+      </div>
+        
+      <div class="row">
+        <div class="col-sm-10 col-md-8 center-block">
+          <p class="highlight">
+            Welcome to <span class="highlight">moodBUMP-</span> your own personal
+            assistant to give your mood a bump and help you reach your goals.<br /><br /><span
+              class="highlight"
+              >moodBUMP</span>
+            is a personal companion app that will help train your brain to live
+            everyday with intention.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-10 col-md-8 center-block">
+          
+          <p class="tip"><i class="fas fa-hand-point-right"></i>
+            Get started by selecting or creating your first goal by tapping the "Goals" icon below.
+          </p>
+        </div>
+      </div>
+    </main>
 
     <footer>
       <div class="head-foot footer">
-        <div class="container">
+        <div class="row">
+        <div class="container col-sm-10 col-md-8 center-block"">
           <div>
             <a href="../pages/goal.html" class="footer" title="Goals">
               <img
@@ -56,7 +76,7 @@
                 alt="Goals"
               />
 
-              <h5>Goals</h5>
+              <h6>Goals</h6>
             </a>
           </div>
           <div>
@@ -68,7 +88,7 @@
                 alt="Trends"
               />
 
-              <h5>Trends</h5>
+              <h6>Trends</h6>
             </a>
           </div>
 
@@ -80,7 +100,7 @@
                 title="Home"
                 alt="Home"
               />
-              <h5>Log Mood</h5>
+              <h6>Log Mood</h6>
             </a>
           </div>
 
@@ -92,7 +112,7 @@
                 title="Tools"
                 alt="Tools"
               />
-              <h5>Tools</h5>
+              <h6>Tools</h6>
             </a>
           </div>
           <div>
@@ -103,10 +123,11 @@
                 title="Logout"
                 alt="Logout"
               />
-              <h5>Logout</h5>
+              <h6>Logout</h6>
             </a>
           </div>
         </div>
+      </div>
       </div>
     </footer>
   </body>
