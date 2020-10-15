@@ -744,6 +744,10 @@ div.container {
   p.tip {
     font-size: 0.8em;
   }
+  i.fa-plus-circle {
+    position: relative;
+    top: -5px;
+  }
 }
 
 @media only screen and (min-width: 900px) {

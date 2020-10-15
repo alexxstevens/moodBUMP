@@ -127,7 +127,7 @@ button.submit {
 	display: none;
 }
 
-//list groups
+//LIST GROUPS
 ul.list-group {
 	margin-bottom: 5%;
 	margin-top: 2%;
@@ -155,7 +155,7 @@ ul.list-group {
 	}
 }
 
-//welcome page
+//WELCOME
 p.tip {
 	background-color: $primaryTextColor;
 	font-weight: map-get($font-weights, medium);
@@ -172,7 +172,7 @@ p.tip {
 	}
 }
 
-//powerHour page
+//POWER HOUR
 p.small {
 	font-size: 1.1em;
 	margin-bottom: 2%;
@@ -191,7 +191,7 @@ div#border {
 	font-size: 1.3em;
 }
 
-//tools page
+//TOOLS
 div.white {
 	background-color: white;
 	text-align: center;
@@ -204,7 +204,7 @@ h3.adjust {
 	top: 20px;
 }
 
-//HOME BASE
+//HOME
 ol.goals {
 	li.goals {
 		color: $primaryTextColor;
@@ -245,7 +245,6 @@ input.slidecontainer {
 	opacity: 0.7;
 }
 
-//home log instruction
 p.mood {
 	color: $primaryTextColor;
 	font-weight: map-get($font-weights, medium);
@@ -260,7 +259,7 @@ p#subNote {
 	font-weight: map-get($font-weights, regular);
 }
 
-//LOAD PAGE
+//LOAD
 img#load_icon {
 	position: fixed;
 	bottom: 0;
@@ -281,7 +280,7 @@ h1.load {
 	margin-bottom: 0px;
 }
 
-//Goal Page
+//GOAL
 .dropbtn {
 	border: none;
 	cursor: pointer;
@@ -375,7 +374,7 @@ div#notification {
 	float: right;
 }
 
-//SleepLog
+//SLEEP LOG
 
 form#sleep {
 	padding: 5%;
@@ -396,7 +395,7 @@ form#sleep {
 	width: 400px;
 }
 
-//meditation
+//MEDITATION
 h3.square {
 	color: white;
 	background-color: $secondaryButtonColor;

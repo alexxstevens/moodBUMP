@@ -180,16 +180,14 @@
 		</footer>
 
 		<script>
-			/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content 	*/
-
+			"use strict"; //
+			//CLICK EVENT
 			document.getElementById("dropbtn").addEventListener("click", myFunction);
-
+			//TOGGLE SHOW CLASS TO VIEW DROPDOWN
 			function myFunction() {
 				document.getElementById("myDropdown").classList.toggle("show");
 			}
-
-			// Close the dropdown if the user clicks outside of it
+			//CLOSE DROPDOWN IF CLICK OUTSIDE
 			$(document).on("click", function (event) {
 				if (!event.target.matches(".dropbtn")) {
 					let dropdowns = document.getElementsByClassName("dropdown-content");
