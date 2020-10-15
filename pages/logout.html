@@ -8,10 +8,8 @@
     <meta name="keywords" content="HTML" />
     <meta name="author" content="Alex Stevens" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login to moodBUMP</title>
+    <title>Logout</title>
     <!-- fonts -->
-
-    <!-- main style-->
     <link
       href="https://fonts.googleapis.com/css2?family=Overpass:wght@200;400;900&display=swap"
       rel="stylesheet"
@@ -34,12 +32,15 @@
           id="logo"
           title="moodBUMP_logo"
           alt="moodBUMP_logo"
+          height="150"
+          width="350"
         />
         <h1>mood<span class="BUMP">BUMP</span></h1>
       </div>
     </header>
 
-    <div id="main">
+
+    <main>
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
@@ -150,7 +151,7 @@
                       <div class="row">
                         <div class="col-sm-6 col-sm-offset-3">
                           <button
-                            class="form-control btn btn-register"
+                            class="form-control btn btn-register btn-block" 
                             value="Register Now"
                             onclick="window.location.href = './welcome.html';"
                           >
@@ -166,7 +167,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </main>
   </body>
   <script>
     $(function () {
