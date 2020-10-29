@@ -1,1 +1,3 @@
-images/
+/images
+/builds
+/node_modules

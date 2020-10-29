@@ -1,0 +1,414 @@
+html,
+body {
+	font-family: "Overpass", sans-serif;
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	overflow: scroll;
+	overflow-x: hidden;
+	background-color: $backgroundColor;
+}
+
+::-webkit-scrollbar {
+	width: 0px; /* Remove scrollbar space */
+	background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+main {
+	margin-top: 95px;
+	margin-bottom: 100px;
+}
+
+main.load {
+	margin-top: 0px;
+}
+
+div.center-block {
+	float: none;
+	margin: 0 auto;
+}
+
+h2.heading {
+	color: $primaryTextColor;
+	font-weight: map-get($font-weights, bold);
+	font-size: 2.2em;
+	display: inline;
+}
+
+h3.heading {
+	color: $headingTextColor;
+	font-weight: map-get($font-weights, bold);
+	display: inline;
+}
+
+i {
+	padding: 0;
+	margin: 0;
+}
+
+p.item {
+	color: $primaryTextColor;
+	display: inline;
+	font-weight: map-get($font-weights, bold);
+	font-size: 1.3em;
+}
+
+a.clr_underline {
+	text-decoration: none;
+}
+
+a.clr_underline:hover {
+	text-decoration: none;
+}
+
+span.highlight {
+	font-weight: map-get($font-weights, medium);
+	color: $headingTextColor;
+}
+
+span.underline {
+	text-decoration: underline;
+}
+
+span.inline {
+	width: 100%;
+	height: auto;
+}
+
+button {
+	margin-bottom: 2%;
+	font-weight: bold;
+}
+
+button.container {
+	border: none;
+	background-color: rgba(255, 255, 255, 0);
+}
+
+button.info {
+	border: none;
+	background-color: rgba(255, 255, 255, 0);
+	font-size: 1.5em;
+	float: right;
+}
+
+button.btn-primary {
+	background-color: $buttonColor;
+	border: $buttonColor;
+}
+button.btn-primary:hover {
+	background-color: $secondaryButtonColor;
+	border: $secondaryButtonColor;
+}
+
+button.submit {
+	margin-bottom: 5%;
+}
+
+.white-bkgd {
+	background-color: white;
+	margin-bottom: 0;
+}
+
+.entry {
+	padding: 3%;
+	width: 100%;
+	color: $primaryTextColor;
+	margin-top: 1%;
+}
+
+.main {
+	padding: 3%;
+	width: 100%;
+	color: $primaryTextColor;
+	font-size: 1.3em;
+}
+
+.hidden {
+	display: none;
+}
+
+//LIST GROUPS
+ul.list-group {
+	margin-bottom: 5%;
+	margin-top: 2%;
+	padding: 0;
+	li {
+		padding-bottom: 1%;
+		height: 60px;
+	}
+	li.list-group-item a {
+		color: $primaryTextColor;
+		font-weight: bold;
+		font-size: 1.3em;
+	}
+	li.list-group-item a:hover {
+		color: black;
+		text-decoration: underline;
+	}
+	span.icon {
+		float: right;
+		font-size: 1.3em;
+		padding: 0mm;
+		button {
+			padding-bottom: 0;
+		}
+	}
+}
+
+//WELCOME
+p.tip {
+	background-color: $primaryTextColor;
+	font-weight: map-get($font-weights, medium);
+	color: white;
+	margin-top: 0;
+	text-align: left;
+	padding: 1%;
+	font-size: 1.1em;
+	padding-left: 4%;
+	border-radius: 2px;
+	box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.6);
+	i {
+		font-size: 1.2em;
+	}
+}
+
+//POWER HOUR
+p.small {
+	font-size: 1.1em;
+	margin-bottom: 2%;
+}
+
+div#border {
+	color: $headingTextColor;
+	font-weight: map-get($font-weights, medium);
+	background-color: white;
+	margin-top: 3%;
+	border-left: 10px solid $headingTextColor;
+	border-right: 10px solid $headingTextColor;
+	margin-right: 20%;
+	margin-left: 20%;
+	padding-top: 5px;
+	font-size: 1.3em;
+}
+
+//TOOLS
+div.white {
+	background-color: white;
+	text-align: center;
+	padding: 3%;
+	margin-bottom: 3%;
+}
+
+h3.adjust {
+	position: relative;
+	top: 20px;
+}
+
+//HOME
+ol.goals {
+	li.goals {
+		color: $primaryTextColor;
+		font-weight: map-get($font-weights, bold);
+		padding: 2%;
+		font-size: 1.3em;
+	}
+}
+
+div.slidecontainer {
+	margin-top: 5px;
+	padding-top: 0;
+	padding-bottom: 5px;
+	text-align: center;
+}
+
+span#moodScale {
+	font-weight: map-get($font-weights, bold);
+	font-size: 1.2em;
+	color: $primaryTextColor;
+}
+
+.slidecontainer img {
+	width: 76%;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 5%;
+	margin-bottom: 2%;
+}
+
+input.slidecontainer {
+	-webkit-appearance: none;
+	width: 70%;
+	height: 15px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+}
+
+p.mood {
+	color: $primaryTextColor;
+	font-weight: map-get($font-weights, medium);
+	font-size: 1.2em;
+	margin-bottom: 0;
+	text-align: left;
+	margin-left: 13%;
+}
+
+p#subNote {
+	font-style: italic;
+	font-weight: map-get($font-weights, regular);
+}
+
+//LOAD
+img#load_icon {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+
+h1.load,
+h3.load {
+	text-align: center;
+	margin-top: 5px;
+	color: $primaryTextColor;
+}
+
+h1.load {
+	font-size: 3em;
+	margin-top: 20%;
+	margin-bottom: 0px;
+}
+
+//GOAL
+.dropbtn {
+	border: none;
+	cursor: pointer;
+	background-color: white;
+}
+
+a.inactive {
+	color: lightgrey;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+	background-color: darkgrey;
+}
+
+.dropdown {
+	float: right;
+	position: relative;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	overflow: auto;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	right: 0;
+	z-index: 1;
+}
+
+.dropdown-content a {
+	padding: 2%;
+	display: block;
+}
+
+.dropdown a:hover {
+	background-color: #ddd;
+}
+
+.show {
+	display: block;
+}
+
+//CUSTOM GOAL
+form#customGoal {
+	width: 100%;
+	input {
+		font-size: 1.3em;
+		padding: 1.7%;
+		margin-top: 2%;
+		border-radius: 5px;
+		width: 100%;
+		border: none;
+	}
+}
+
+//TRENDS
+div.chart {
+	padding-top: 3%;
+	padding-bottom: 5%;
+	text-align: center;
+}
+
+//THOUGHT JOURNAL
+textarea {
+	width: 100%;
+	height: 100px;
+	font-size: 1.3em;
+	border: none;
+}
+
+//MANTRAS
+div#notification {
+	background-color: rgb(247, 247, 247);
+	padding-bottom: 2%;
+	padding-left: 3%;
+	padding-right: 0;
+	padding-top: 2.5%;
+	margin-top: 5%;
+	margin-bottom: 4%;
+	border: 1px solid lightgrey;
+	h5 {
+		display: inline;
+		font-size: 1.2em;
+		color: $primaryTextColor;
+	}
+}
+
+.fa-trash-alt {
+	float: right;
+}
+
+//SLEEP LOG
+
+form#sleep {
+	padding: 5%;
+	color: $primaryTextColor;
+	font-weight: bold;
+	input[type="date"],
+	select {
+		width: 100%;
+		padding: 12px 20px;
+		display: inline-block;
+		border: 1px solid white;
+		border-radius: 5px;
+	}
+}
+
+.chart-sleep {
+	height: 200px;
+	width: 400px;
+}
+
+//MEDITATION
+h3.square {
+	color: white;
+	background-color: $secondaryButtonColor;
+	padding: 1%;
+	padding-top: 1.5%;
+	margin: 0 0 0 0;
+	padding-left: 2%;
+	font-size: 1.3em;
+	width: 100%;
+}
+ul.small {
+	li {
+		height: 50px;
+	}
+}

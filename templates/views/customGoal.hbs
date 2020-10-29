@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!--<![endif]-->
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8" />
+		<meta name="description" content="moodBUMP" />
+		<meta name="keywords" content="HTML" />
+		<meta name="author" content="Alex Stevens" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Add Custom Goal</title>
+		<!-- main style-->
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+			integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+			crossorigin="anonymous"
+		/>
+		<!-- fonts -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Overpass:wght@200;400;900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+			integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+			crossorigin="anonymous"
+		/>
+		<link href="/style/main.css" rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"
+		/>
+		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script rel="text/javascript" src="/js/tools_script.js"></script>
+	</head>
+	<body>
+		{{>header}}
+
+		<main>
+			<div class="row">
+				<div class="col-sm-10 col-md-8 center-block">
+					<h2 class="heading">Create Custom Goal</h2>
+					<span class="icon"
+						><button id="opener" class="info">
+							<i class="far fa-question-circle"></i></button
+					></span>
+				</div>
+			</div>
+
+			<form id="customGoal">
+				<div class="row">
+					<div class="col-sm-10 col-md-8 center-block">
+						<h3 class="heading">Goal Name:</h3>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-10 col-md-8 center-block">
+						<input
+							type="text"
+							id="goalTitle"
+							name="goalTitle"
+							value=""
+							placeholder="Type goal name..."
+						/>
+					</div>
+				</div>
+				<br />
+				<div class="row">
+					<div class="col-sm-10 col-md-8 center-block">
+						<h3 class="heading">Goal Tools:</h3>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-10 col-md-8 center-block">
+						<input
+							type="text"
+							id="Tool_1"
+							name="Tool_1"
+							value=""
+							placeholder="Type goal task..."
+						/>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-10 col-md-8 center-block">
+						<input
+							type="text"
+							id="Tool_2"
+							name="Tool_2"
+							value=""
+							placeholder="Type goal task..."
+						/>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-10 col-md-8 center-block">
+						<input
+							type="text"
+							id="Tool_3"
+							name="Tool_3"
+							value=""
+							placeholder="Type goal task..."
+						/>
+					</div>
+				</div>
+			</form>
+			<br />
+			<div class="row">
+				<div class="col-sm-10 col-md-8 center-block">
+					<a href="/goal" class="clr_underline"
+						><button class="btn btn-primary btn-lg btn-block" type="submit">
+							Submit New Goal
+						</button></a
+					>
+				</div>
+			</div>
+
+			<div id="dialog" title="Help">
+				Add a custom goal and its goal tools. Custom goal tools may be checked
+				off as completed and tracked in trends.
+			</div>
+		</main>
+
+		{{>footer}}
+
+	</body>
+</html>
