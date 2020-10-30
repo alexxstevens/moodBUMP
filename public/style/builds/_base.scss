@@ -79,6 +79,10 @@ iframe {
 	width: 100%;
 }
 
+.extra {
+	font-size: 0.7em;
+}
+
 button {
 	margin-bottom: 2%;
 	font-weight: bold;
@@ -415,4 +419,19 @@ ul.small {
 	li {
 		height: 50px;
 	}
+}
+
+button.journal {
+	background-color: white;
+	border: none;
+	font-size: 1.5em;
+}
+
+button#delete {
+	background-color: #aa9a9a;
+}
+
+button#delete:hover {
+	background-color: #ff1717;
+	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }

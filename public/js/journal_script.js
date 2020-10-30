@@ -9,8 +9,8 @@ $(function () {
 				text: "Confirm",
 				id: "confirmDelete",
 				click: function () {
-					$(this).dialog("close"); //will update to record to DB
-					window.location.href = "thoughtJournal.html";
+					$("#deleteJournalForm").submit();
+					res.redirect("/thoughtJournal");
 				},
 			},
 			{

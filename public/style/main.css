@@ -169,6 +169,10 @@ iframe {
   width: 100%;
 }
 
+.extra {
+  font-size: 0.7em;
+}
+
 button {
   margin-bottom: 2%;
   font-weight: bold;
@@ -502,6 +506,22 @@ ul.small li {
   height: 50px;
 }
 
+button.journal {
+  background-color: white;
+  border: none;
+  font-size: 1.5em;
+}
+
+button#delete {
+  background-color: #aa9a9a;
+}
+
+button#delete:hover {
+  background-color: #ff1717;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
 .lds-spinner {
   width: 100px;
   height: 100px;
@@ -736,6 +756,24 @@ div.container {
   border-color: #50a2a8;
 }
 
+@media only screen and (min-width: 300px) {
+  h3.extras {
+    font-size: 1.5em;
+  }
+  button.journal {
+    font-size: 1.3em;
+  }
+}
+
+@media only screen and (min-width: 580px) {
+  .extra {
+    font-size: 0.7em;
+  }
+  button.journal {
+    font-size: 1.2em;
+  }
+}
+
 @media only screen and (min-width: 600px) {
   main {
     font-size: 1.3em;
@@ -752,6 +790,18 @@ div.container {
   i.fa-plus-circle {
     position: relative;
     top: -5px;
+  }
+  .extra {
+    font-size: 0.5em;
+  }
+  button.journal {
+    font-size: 1.3em;
+  }
+}
+
+@media only screen and (min-width: 650px) {
+  button.journal {
+    font-size: 1.4em;
   }
 }
 

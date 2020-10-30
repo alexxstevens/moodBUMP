@@ -9,6 +9,8 @@ const Goal = require("../models/Goal");
 const Mantra = require("../models/Mantra");
 const Affirmation = require("../models/Affirmation");
 const Sleep = require("../models/Sleep");
+const Entry = require("../models/Entry");
+const entries = require("../routes/api/entries");
 
 const app = express();
 
@@ -46,6 +48,7 @@ mongoose
 //use api
 app.use("/api/moods", moods);
 app.use("/api/goals", goals);
+app.use("/api/entries", entries);
 
 const PORT = process.env.PORT || 3000;
 
@@ -138,6 +141,26 @@ app.post("/addGoal", (req, res) => {
 		.catch((error) => console.error(error));
 });
 
+//MANAGEGOALS PAGE
+app.get("/manageGoal", (req, res) => {
+	Goal.find(function (err, goal) {
+		res.render("manageGoal", {
+			title: "moodBUMP Manage Goals",
+			goals: goal,
+		});
+	});
+});
+
+//delete goal
+//delete entry
+app.post("/deleteGoal", (req, res) => {
+	console.log("activated");
+	console.log(req.body);
+	Goal.findById(req.body._id)
+		.then((goal) => goal.remove().then(() => res.redirect("/manageGoal")))
+		.catch((err) => res.status(404).json({ success: false }));
+});
+
 //TRENDPAGE;
 app.get("/trend", (req, res) => {
 	res.render("trend", {
@@ -206,19 +229,76 @@ app.post("/addMantra", (req, res) => {
 		.catch((error) => console.error(error));
 });
 
-//THOUGHT JOURNAL
+//THOUGHT JOURNAL PAGE
 app.get("/thoughtJournal", (req, res) => {
-	res.render("thoughtJournal", {
-		title: "moodBUMP Thought Journal",
+	Entry.find(function (err, entry) {
+		res.render("thoughtJournal", {
+			title: "moodBUMP Thought Journal",
+			entries: entry,
+		});
 	});
 });
 
+//add journal entry
+app.post("/addEntry", (req, res) => {
+	const newEntry = new Entry({
+		journalEntry: req.body.journalEntry,
+	});
+	console.log(req.body.journalEntry);
+	newEntry
+		.save()
+		.then((entry) => res.redirect("/thoughtJournal")) //res.json(goal))
+		.catch((error) => console.error(error));
+});
+
 //THOUGHT JOURNAL ENTRY
-app.get("/thoughtJournalEntry", (req, res) => {
-	res.render("thoughtJournalEntry", {
-		title: "moodBUMP Thought Journal Entry",
+app.post("/getEntry", (req, res) => {
+	//console.log(req.body._id);
+	Entry.find(function (err, entry) {
+		const found = entry.filter((entry) => entry._id == req.body._id);
+		if (found) {
+			//console.log("true");
+			res.render("thoughtJournalEntry", {
+				title: "moodBUMP Thought Journal Entry",
+				entry: found,
+			});
+			//console.log(found);
+		} else {
+			res.render("404", {});
+		}
 	});
 });
+
+//delete entry
+app.post("/deleteEntry", (req, res) => {
+	console.log("activated");
+	console.log(req.body);
+	Entry.findById(req.body._id)
+		.then((entry) => entry.remove().then(() => res.redirect("/thoughtJournal")))
+		.catch((err) => res.status(404).json({ success: false }));
+});
+
+// 	Entry.find(function (err, entry) {
+// 		console.log(entry);
+// 		res.render("thoughtJournal", {
+// 			title: "moodBUMP Thought Journal Entry",
+// 			entries: entry,
+// 		});
+// 	});
+// });
+// router.get("/:id", (req, res) => {
+// 	const found = members.some((member) => member.id === parseInt(req.params.id));
+// 	if (found) {
+// 		res.json(members.filter((member) => member.id === parseInt(req.params.id)));
+// 	} else {
+// 		res.status(400).json({ msg: `No member with the id of ${req.params.id}` });
+// 	}
+// });
+// router.get("/", (req, res) => {
+// 	Goal.find()
+// 		.sort({ name: -1 }) //ascending
+// 		.then((goal) => res.json(goal));
+// });
 
 //SLEEPLOGPAGE
 app.get("/sleepLog", (req, res) => {
