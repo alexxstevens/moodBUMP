@@ -8,7 +8,7 @@
     <meta name="keywords" content="HTML" />
     <meta name="author" content="Alex Stevens" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>moodBUMP Tools</title>
+    <title>{{title}}</title>
    <!-- main style-->
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
      <!-- fonts -->
@@ -30,18 +30,19 @@
    		{{>header}}
 
     <main>
-
-
+<span class="icon"><button id="opener" class="info"> <i class="far fa-question-circle"></i></button></span><br>
+       {{#if mindfulness}}
       <div class="row">
         <div class="col-sm-10 col-md-8 center-block">
-          <h3 class="heading adjust">Mindfulness Tools:</h3><span class="icon"><button id="opener" class="info"> <i class="far fa-question-circle"></i></button></span>
+          <h3 class="heading adjust">Mindfulness Tools:</h3>
         </div>
-      </div>
+      </div><br>
 
       <div class="row">
         <div class="col-sm-10 col-md-8 center-block">
           <ul class="list-group">
             <!-- will pull from DB//onclick events will be added to dropdown to add to inactive DB or delete from DB-->
+           
             <li class="list-group-item">
               <a href="/thoughtJournal">Thought Journal</a>
               <span class="icon"><button class="container"><i class="far fa-check-circle"></i></button></span>
@@ -57,7 +58,9 @@
           </ul>
         </div>
       </div>
+      {{/if}}
 
+        {{#if productivity}}
       <div class="row">
         <div class="col-sm-10 col-md-8 center-block">
           <h3 class="heading">Productivity Tools:</h3>
@@ -83,7 +86,47 @@
           </ul>
         </div>
       </div>
-      
+      {{/if}}
+
+      {{#each custom_tools}}
+      <div class="row">
+        <div class="col-sm-10 col-md-8 center-block">
+          <h3 class="heading">{{name}} Tools:</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-10 col-md-8 center-block">
+          <ul class="list-group">
+            <!-- will pull from DB//onclick events will be added to dropdown to add to inactive DB or delete from DB-->
+            {{#if tool_1}}
+            <li class="list-group-item">
+              <p class="item">{{tool_1}}</p>
+              <span class="icon"><button class="container"><i class="far fa-check-circle"></i></button></span>
+            </li>
+            {{else}}
+              <li class="list-group-item">
+              <p class="item">No custom tools were added.</p>
+              <span class="icon"><button class="container"><i class="far fa-check-circle"></i></button></span>
+            </li>
+            {{/if}}
+            {{#if tool_2}}
+            <li class="list-group-item">
+              <p class="item">{{tool_2}}</p>
+              <span class="icon"><button class="container"><i class="far fa-check-circle"></i></button></span>
+            </li>
+            {{/if}}
+            {{#if tool_3}}
+            <li class="list-group-item">
+              <p class="item">{{tool_3}}</p>
+              <span class="icon"><button class="container"><i class="far fa-check-circle"></i></button></span>
+            </li>
+            {{/if}}
+          </ul>
+        </div>
+      </div>
+      {{/each}}
+
       <div id="dialog" title="Help">
         Tap on tool title to navigate to tool item.  Tap on check mark to log tool completion for today.
       </div>

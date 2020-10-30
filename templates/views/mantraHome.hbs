@@ -8,7 +8,7 @@
 		<meta name="keywords" content="HTML" />
 		<meta name="author" content="Alex Stevens" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>moodBUMP Mantras</title>
+		<title>{{title}}</title>
 		<!-- main style-->
 		<link
 			rel="stylesheet"
@@ -61,18 +61,15 @@
 					</div>
 				</div>
 			</div>
-
+ 
+			{{#each mantras}}
 			<div class="row">
 				<div class="col-sm-10 col-md-8 center-block white">
-					<p class="item white">"Self care is not selfish."</p>
+					<p class="item white">"{{mantraEntry}}"</p>
 				</div>
 			</div>
+			{{/each}}
 
-			<div class="row">
-				<div class="col-sm-10 col-md-8 center-block white">
-					<p class="item">"Who do I want to be?"</p>
-				</div>
-			</div>
 
 			<div class="row">
 				<div class="col-sm-10 col-md-8 center-block">

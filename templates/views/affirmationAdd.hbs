@@ -8,7 +8,7 @@
 		<meta name="keywords" content="HTML" />
 		<meta name="author" content="Alex Stevens" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Edit Affirmations</title>
+		<title>{{title}}</title>
 		<!-- font awesome -->
 		<link
 			rel="stylesheet"
@@ -39,9 +39,10 @@
 	<body>
 		{{>header}}
 		<main>
+		<form action="/addAffirmation" method="POST">
 			<div class="row">
 				<div class="col-sm-10 col-md-8 center-block">
-					<textarea
+					<textarea name="affirmationEntry"
 						placeholder="Type your new affirmation entry here..."
 					></textarea>
 				</div>
@@ -56,31 +57,46 @@
 					>
 				</div>
 			</div>
-
+			</form>
+			<br>
 			<div class="row">
 				<div class="col-sm-10 col-md-8 center-block">
 					<h3 class="heading">Existing Affirmations:</h3>
 				</div>
 			</div>
 
+
+			{{#unless affirmations}}
+			<div class="row">
+				<div class="col-sm-10 col-md-8 center-block">
+					<div class="goals">
+						<ul class="list-group">
+							<!-- this page will display if goal DB empty-->
+							<li class="list-group-item">
+								<p id="subNote" class="white-bkgd">
+									Add your first affirmation!
+								</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			{{/unless}}
+
+
 			<div class="row">
 				<div class="col-sm-10 col-md-8 center-block">
 					<ul class="list-group">
+						{{#each affirmations}}
 						<!-- will populate from DB-->
 						<li class="list-group-item">
-							<p class="item">"Am I good enough? Yes I am."</p>
+							<p class="item">"{{affirmationEntry}}"</p>
 							<span class="icon"
 								><button class="container" id="opener_1">
 									<i class="far fa-trash-alt"></i></button
 							></span>
 						</li>
-						<li class="list-group-item">
-							<p class="item">"I am deliberate and afraid of nothing."</p>
-							<span class="icon"
-								><button class="container" id="opener_2">
-									<i class="far fa-trash-alt"></i></button
-							></span>
-						</li>
+						{{/each}}
 					</ul>
 				</div>
 			</div>
@@ -92,3 +108,4 @@
 		{{>footer}}
 	</body>
 </html>
+ 

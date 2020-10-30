@@ -6,6 +6,9 @@ const moods = require("../routes/api/moods");
 const Mood = require("../models/Mood");
 const goals = require("../routes/api/goals");
 const Goal = require("../models/Goal");
+const Mantra = require("../models/Mantra");
+const Affirmation = require("../models/Affirmation");
+const Sleep = require("../models/Sleep");
 
 const app = express();
 
@@ -49,35 +52,35 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
 //APP ROUTES
-//load
+//LOADPAGE
 app.get("", (req, res) => {
 	res.render("index", {
 		title: "Loading moodBUMP",
 	});
 });
 
-//login
+//LOGINPAGE
 app.get("/login", (req, res) => {
 	res.render("login", {
 		title: "Login to moodBUMP",
 	});
 });
 
-//logout
+//LOGOUTPAGE
 app.get("/logout", (req, res) => {
 	res.render("logout", {
 		title: "Logout of moodBUMP",
 	});
 });
 
-//welcome
+//WELCOMEPAGE
 app.get("/welcome", (req, res) => {
 	res.render("welcome", {
 		title: "Welcome to moodBUMP",
 	});
 });
 
-//home
+//HOMEPAGE
 app.get("/home", (req, res) => {
 	Goal.find(function (err, goal) {
 		let active = goal.filter((goal) => goal.status === true);
@@ -87,7 +90,7 @@ app.get("/home", (req, res) => {
 		});
 	});
 });
-
+//log mood
 app.post("/moods", (req, res) => {
 	const newMood = new Mood({
 		mood_value: req.body.mood_value,
@@ -98,13 +101,13 @@ app.post("/moods", (req, res) => {
 		.catch((error) => console.error(error));
 });
 
-//goals
+//GOALSPAGE
 app.get("/goal", function (req, res, next) {
 	Goal.find(function (err, goal) {
 		let active = goal.filter((goal) => goal.status === true);
 		let inactive = goal.filter((goal) => goal.status === false);
 		res.render("goal", {
-			title: "moodBUMP goals",
+			title: "moodBUMP Goals",
 			goals: active,
 			inactive_goals: inactive,
 		});
@@ -113,84 +116,170 @@ app.get("/goal", function (req, res, next) {
 	});
 });
 
-//trend;
+//custom goal
+app.get("/customGoal", (req, res) => {
+	res.render("customGoal", {
+		title: "Add Custom Goal",
+	});
+});
+
+//add goal
+app.post("/addGoal", (req, res) => {
+	const newGoal = new Goal({
+		name: req.body.name,
+		tool_1: req.body.tool_1,
+		tool_2: req.body.tool_2,
+		tool_3: req.body.tool_3,
+		status: true,
+	});
+	newGoal
+		.save()
+		.then((goal) => res.redirect("/goal")) //res.json(goal))
+		.catch((error) => console.error(error));
+});
+
+//TRENDPAGE;
 app.get("/trend", (req, res) => {
 	res.render("trend", {
 		title: "moodBUMP Trends",
 	});
 });
 
-//tools
-app.get("/tools", (req, res) => {
-	res.render("tools", {
-		title: "moodBUMP Tools",
-		tool_1: goal.tool_1,
-		tool_2: goal.tool_2,
-		tool_3: goal.tool_3,
+//TOOLSPAGE
+app.get("/tools", function (req, res, next) {
+	Goal.find(function (err, goal) {
+		let active = goal.filter((goal) => goal.status === true);
+		let productivity = goal.filter((goal) => goal.name === "Productivity");
+		let mindfulness = goal.filter((goal) => goal.name === "Mindfulness");
+		let tools = active.filter(
+			(active) =>
+				active.name !== "Productivity" && active.name !== "Mindfulness"
+		);
+		console.log(tools);
+		res.render("tools", {
+			title: "moodBUMP Tools",
+			custom_tools: tools,
+			productivity: productivity,
+			mindfulness: mindfulness,
+		});
 	});
 });
 
-//meditation
+//MEDITATIONPAGE
 app.get("/meditation", (req, res) => {
 	res.render("meditation", {
 		title: "moodBUMP Meditation Resources",
 	});
 });
 
-//though journal
+//MANTRAPAGE
+app.get("/mantraHome", function (req, res, next) {
+	Mantra.find(function (err, mantra) {
+		console.log(mantra);
+		res.render("mantraHome", {
+			title: "moodBUMP Mantras",
+			mantras: mantra,
+		});
+	});
+});
+
+//custom mantra
+app.get("/mantraAdd", (req, res) => {
+	Mantra.find(function (err, mantra) {
+		console.log(mantra);
+		res.render("mantraAdd", {
+			title: "moodBUMP Mantras",
+			mantras: mantra,
+		});
+	});
+});
+
+//add mantra
+app.post("/addMantra", (req, res) => {
+	const newMantra = new Mantra({
+		mantraEntry: req.body.mantraEntry,
+	});
+	console.log(req.body.mantraEntry);
+	newMantra
+		.save()
+		.then((mantra) => res.redirect("/mantraHome")) //res.json(goal))
+		.catch((error) => console.error(error));
+});
+
+//THOUGHT JOURNAL
 app.get("/thoughtJournal", (req, res) => {
 	res.render("thoughtJournal", {
 		title: "moodBUMP Thought Journal",
 	});
 });
 
-//though journal entry
+//THOUGHT JOURNAL ENTRY
 app.get("/thoughtJournalEntry", (req, res) => {
 	res.render("thoughtJournalEntry", {
 		title: "moodBUMP Thought Journal Entry",
 	});
 });
 
-//sleep log
+//SLEEPLOGPAGE
 app.get("/sleepLog", (req, res) => {
 	res.render("sleepLog", {
 		title: "moodBUMP Sleep Log",
 	});
 });
 
-//power hour
+//log sleep
+app.post("/logSleep", (req, res) => {
+	const newSleep = new Sleep({
+		date: req.body.date,
+		hours: req.body.hours,
+		quality: req.body.quality,
+	});
+	console.log(req.body.hours);
+	newSleep
+		.save()
+		.then((sleep) => res.redirect("/sleepLog")) //res.json(goal))
+		.catch((error) => console.error(error));
+});
+
+//PWOERHOURPAGE
 app.get("/powerHour", (req, res) => {
 	res.render("powerHour", {
 		title: "moodBUMP Power Hour",
 	});
 });
 
-//affirmation
-app.get("/affirmationHome", (req, res) => {
-	res.render("affirmationHome", {
-		title: "moodBUMP Affirmations",
+//AFFIRMATIONPAGE
+app.get("/affirmationHome", function (req, res, next) {
+	Affirmation.find(function (err, affirmation) {
+		console.log(affirmation);
+		res.render("affirmationHome", {
+			title: "moodBUMP Affirmations",
+			affirmations: affirmation,
+		});
+	});
+});
+
+//custom affirmation
+app.get("/affirmationAdd", (req, res) => {
+	Affirmation.find(function (err, affirmation) {
+		console.log(affirmation);
+		res.render("affirmationAdd", {
+			title: "moodBUMP affirmation",
+			affirmations: affirmation,
+		});
 	});
 });
 
 //add affirmation
-app.get("/affirmationAdd", (req, res) => {
-	res.render("affirmationAdd", {
-		title: "Edit Affirmations",
+app.post("/addAffirmation", (req, res) => {
+	const newAffirmation = new Affirmation({
+		affirmationEntry: req.body.affirmationEntry,
 	});
-});
-
-//mantra
-app.get("/mantraHome", (req, res) => {
-	res.render("mantraHome", {
-		title: "moodBUMP Mantras",
-	});
-});
-
-//mantra add
-app.get("/mantraAdd", (req, res) => {
-	res.render("mantraAdd", {
-		title: "Edit Mantras",
-	});
+	console.log(req.body.affirmationEntry);
+	newAffirmation
+		.save()
+		.then((affirmation) => res.redirect("/affirmationHome")) //res.json(goal))
+		.catch((error) => console.error(error));
 });
 
 //404

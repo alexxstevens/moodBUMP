@@ -165,6 +165,10 @@ span.inline {
   height: auto;
 }
 
+iframe {
+  width: 100%;
+}
+
 button {
   margin-bottom: 2%;
   font-weight: bold;

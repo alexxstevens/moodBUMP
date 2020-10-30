@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 	<!--<![endif]-->
-	<head>
+	<head> 
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta charset="UTF-8" />
 		<meta name="description" content="moodBUMP" />
 		<meta name="keywords" content="HTML" />
 		<meta name="author" content="Alex Stevens" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>moodBUMP Affirmations</title>
+		<title>{{title}}</title>
 		<!-- main style-->
 		<link
 			rel="stylesheet"
@@ -61,17 +61,13 @@
 				</div>
 			</div>
 
+			{{#each affirmations}}
 			<div class="row">
 				<div class="col-sm-10 col-md-8 center-block white">
-					<p class="item">"Am I good enough? Yes I am."</p>
+					<p class="item white">"{{affirmationEntry}}"</p>
 				</div>
 			</div>
-
-			<div class="row">
-				<div class="col-sm-10 col-md-8 center-block white">
-					<p class="item">"I am deliberate and afraid of nothing."</p>
-				</div>
-			</div>
+			{{/each}}
 
 			<div class="row">
 				<div class="col-sm-10 col-md-8 center-block">

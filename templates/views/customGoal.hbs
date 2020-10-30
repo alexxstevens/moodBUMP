@@ -8,7 +8,7 @@
 		<meta name="keywords" content="HTML" />
 		<meta name="author" content="Alex Stevens" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Add Custom Goal</title>
+		<title>{{title}}</title>
 		<!-- main style-->
 		<link
 			rel="stylesheet"
@@ -50,7 +50,7 @@
 				</div>
 			</div>
 
-			<form id="customGoal">
+			<form id="customGoal"  action="/addGoal" method="POST">
 				<div class="row">
 					<div class="col-sm-10 col-md-8 center-block">
 						<h3 class="heading">Goal Name:</h3>
@@ -61,9 +61,7 @@
 					<div class="col-sm-10 col-md-8 center-block">
 						<input
 							type="text"
-							id="goalTitle"
-							name="goalTitle"
-							value=""
+							name="name"
 							placeholder="Type goal name..."
 						/>
 					</div>
@@ -79,9 +77,7 @@
 					<div class="col-sm-10 col-md-8 center-block">
 						<input
 							type="text"
-							id="Tool_1"
-							name="Tool_1"
-							value=""
+							name="tool_1"
 							placeholder="Type goal task..."
 						/>
 					</div>
@@ -91,9 +87,7 @@
 					<div class="col-sm-10 col-md-8 center-block">
 						<input
 							type="text"
-							id="Tool_2"
-							name="Tool_2"
-							value=""
+							name="tool_2"
 							placeholder="Type goal task..."
 						/>
 					</div>
@@ -103,14 +97,12 @@
 					<div class="col-sm-10 col-md-8 center-block">
 						<input
 							type="text"
-							id="Tool_3"
-							name="Tool_3"
-							value=""
+							name="tool_3"
 							placeholder="Type goal task..."
 						/>
 					</div>
 				</div>
-			</form>
+	
 			<br />
 			<div class="row">
 				<div class="col-sm-10 col-md-8 center-block">
@@ -121,6 +113,7 @@
 					>
 				</div>
 			</div>
+			</form>
 
 			<div id="dialog" title="Help">
 				Add a custom goal and its goal tools. Custom goal tools may be checked
