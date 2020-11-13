@@ -1,26 +1,36 @@
 {
-  "name": "moodbump-app",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alexxstevens/moodBUMP.git"
-  },
-  "author": "alex stevens",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/alexxstevens/moodBUMP/issues"
-  },
-  "homepage": "https://github.com/alexxstevens/moodBUMP#readme",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "hbs": "^4.1.1",
-    "mongodb": "^3.6.2",
-    "mongoose": "^5.10.11"
-  }
+	"name": "moodbump-app",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"devStart": "nodemon src/index.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/alexxstevens/moodBUMP.git"
+	},
+	"author": "alex stevens",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/alexxstevens/moodBUMP/issues"
+	},
+	"homepage": "https://github.com/alexxstevens/moodBUMP#readme",
+	"dependencies": {
+		"bcrypt": "^5.0.0",
+		"body-parser": "^1.19.0",
+		"cookie-parser": "^1.4.5",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"express-flash": "0.0.2",
+		"express-session": "^1.17.1",
+		"hbs": "^4.1.1",
+		"jsonwebtoken": "^8.5.1",
+		"method-override": "^3.0.0",
+		"mongodb": "^3.6.2",
+		"mongoose": "^5.10.11",
+		"passport": "^0.4.1",
+		"passport-local": "^1.0.0"
+	}
 }
