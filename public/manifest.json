@@ -1,0 +1,35 @@
+{
+	"name": "moodBUMP",
+	"short_name": "mBUMP",
+	"icons": [
+		{
+			"src": "/images/app-icon-48x48.png",
+			"type": "image/png",
+			"sizes": "48x48"
+		},
+		{
+			"src": "/images/app-icon-192x192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "/images/app-icon-256x256.png",
+			"type": "image/png",
+			"sizes": "256x256"
+		},
+		{
+			"src": "/images/app-icon-512x512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"start_url": "../../templates/views/login.hbs",
+	"scope": ".",
+	"display": "standalone",
+	"orientation": "portrait-primary",
+	"background_color": " #B2FFF5",
+	"theme_color": " #1F7882",
+	"description": "A mindfulness coaching app built to promote living with intention.",
+	"dir": "ltr",
+	"lang": "en-US"
+}

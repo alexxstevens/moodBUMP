@@ -1,4 +1,5 @@
 "use strict";
+
 //DIALOG OPTIONS - CONFIRM ADD (HOME-MOOD LOG)
 $(function () {
 	$("#dialog").dialog({
@@ -60,6 +61,30 @@ $(function () {
 		document.getElementById("subNote").innerHTML =
 			"Last recorded on: " + lastRecord;
 		console.log(lastRecord);
+		let timeStamp = "Last recorded on: " + lastRecord;
+		document.cookie = "timeStamp" + "=" + timeStamp + ";" + ";path=/pages/home";
+	}
+
+	function getRecord() {
+		let name = "timeStamp" + "=";
+		let decodedCookie = decodeURIComponent(document.cookie);
+		let ca = decodedCookie.split(";");
+		for (let i = 0; i < ca.length; i++) {
+			let c = ca[i];
+			while (c.charAt(0) == " ") {
+				c = c.substring(1);
+			}
+			if (c.indexOf(name) == 0) {
+				return c.substring(name.length, c.length);
+			}
+		}
+		return "";
+	}
+
+	function insertRecord() {
+		let timeStamp = getRecord();
+		//update subNote"Last recorded on:
+		document.getElementById("subNote").innerHTML = timeStamp;
 	}
 
 	//FILL mood_value IN
@@ -73,4 +98,6 @@ $(function () {
 		document.getElementById("dialog").innerHTML =
 			"Are your sure you want to record the mood score: " + mood_value;
 	};
+
+	insertRecord();
 });

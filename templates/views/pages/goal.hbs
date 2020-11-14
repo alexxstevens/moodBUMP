@@ -9,6 +9,7 @@
 		<meta name="author" content="Alex Stevens" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{{title}}</title>
+  		<link crossorigin="use-credentials" rel="manifest" href="../../../public/manifest.json">
 		<!-- icons -->
 		<link
 			rel="stylesheet"
@@ -76,9 +77,9 @@
 						<li class="list-group-item">
 							<p class="item">{{name}}</p>
 							<span class="icon"
-								><button id="dropbtn" class="container dropbtn">
+								><form action="/toggleMinus" method="POST"><input class="hidden" value="{{_id}}" name="_id"><button type="submit" class="container" >
 									<i class="fas fa-minus-circle fa-sm"></i></button
-							></span>
+							></form></span>
 						</li>
 						{{/each}}
 					</ul>
@@ -98,9 +99,9 @@
 						<li class="list-group-item">
 							<p class="item">{{name}}</p>
 							<span class="icon">
-									<button class="container adjust">
+									<form action="/togglePlus" method="POST"><input class="hidden" value="{{_id}}" name="_id"><button type="submit" class="container adjust">
 										<i class="fas fa-plus-circle fa-sm"></i></button
-								></span>
+								></form></span>
 							</p>
 						</li>
 						{{/each}}
@@ -125,5 +126,16 @@
 		</main>
 
 		{{>footer}}
-		
+
+		{{!-- <script>
+			$( ".plus_btn" ).click(function() {
+  				alert( "Plus button clicked." );
+
+				});
+			$( ".minus_btn" ).click(function() {
+  				alert( "Minus button clicked." );
+				});
+		</script> --}}
+
+	</body>	
 </html>

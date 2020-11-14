@@ -62,12 +62,15 @@ app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
 // //middleware authenticate token
 function authenticateToken(req, res, next) {
+	console.log(req.cookies);
 	let authHeader = req.cookies;
 	const token = authHeader.access_Token;
 	console.log(token);
-	if (token == null) return res.sendStatus(401);
+	if (token == null) res.redirect("/login");
 	jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-		if (err) res.redirect("/login");
+		if (err) {
+			res.redirect("/login");
+		}
 		req.user = user;
 		next();
 	});
@@ -78,25 +81,25 @@ function authenticateToken(req, res, next) {
 //logout
 app.post("/logout", (req, res) => {
 	res.clearCookie("access_Token");
-	console.log(req.cookies);
 	res.redirect("/login");
 });
 
 //login
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
+	console.log(req.cookies);
 	let email = req.body.email;
 	console.log(email);
-	User.findOne({ email: email }, function (err, user) {
+	User.findOne({ email: email }, async function (err, user) {
 		if (user == null) {
 			console.log("says null");
 			res.redirect("/login");
 		}
 		try {
 			console.log(".post trying...");
-			if (bcrypt.compare(req.body.password, user.password)) {
+			if (await bcrypt.compare(req.body.password, user.password)) {
+				console.log(await bcrypt.compare(req.body.password, user.password));
 				const email = req.body.email;
 				const userName = { email };
-				console.log(userName);
 				const accessToken = generateAccessToken(userName);
 				//res.clearCookies();
 				//console.log(req.cookies);
@@ -147,6 +150,7 @@ app.get("", (req, res) => {
 
 //LOGINPAGE
 app.get("/login", (req, res) => {
+	console.log(req.cookies);
 	res.render("login", {
 		title: "Login to moodBUMP",
 	});
@@ -188,7 +192,7 @@ app.post("/moods", (req, res) => {
 });
 
 //GOALSPAGE
-app.get("/pages/goal", function (req, res, next) {
+app.get("/pages/goal", authenticateToken, function (req, res, next) {
 	Goal.find(function (err, goal) {
 		let active = goal.filter((goal) => goal.status === true);
 		let inactive = goal.filter((goal) => goal.status === false);
@@ -202,8 +206,46 @@ app.get("/pages/goal", function (req, res, next) {
 	});
 });
 
+app.post("/togglePlus", (req, res) => {
+	let goal = req.body._id;
+	togglePlus(goal);
+	res.redirect("pages/goal");
+});
+
+function togglePlus(goal) {
+	let _id = goal;
+	console.log(_id);
+	Goal.findByIdAndUpdate({ _id }, { status: true }, function (err, result) {
+		if (err) {
+			console.log(err);
+			return;
+		} else {
+			return;
+		}
+	});
+}
+
+app.post("/toggleMinus", (req, res) => {
+	let goal = req.body._id;
+	toggleMinus(goal);
+	res.redirect("pages/goal");
+});
+
+function toggleMinus(goal) {
+	let _id = goal;
+	console.log(_id);
+	Goal.findByIdAndUpdate({ _id }, { status: false }, function (err, result) {
+		if (err) {
+			console.log(err);
+			return;
+		} else {
+			return;
+		}
+	});
+}
+
 //custom goal
-app.get("/pages/customGoal", (req, res) => {
+app.get("/pages/customGoal", authenticateToken, (req, res) => {
 	res.render("pages/customGoal", {
 		title: "Add Custom Goal",
 	});
@@ -225,7 +267,7 @@ app.post("/addGoal", (req, res) => {
 });
 
 //MANAGEGOALS PAGE
-app.get("/pages/manageGoal", (req, res) => {
+app.get("/pages/manageGoal", authenticateToken, (req, res) => {
 	Goal.find(function (err, goal) {
 		res.render("pages/manageGoal", {
 			title: "moodBUMP Manage Goals",
@@ -245,14 +287,14 @@ app.post("/deleteGoal", (req, res) => {
 });
 
 //TRENDPAGE;
-app.get("/pages/trend", (req, res) => {
+app.get("/pages/trend", authenticateToken, (req, res) => {
 	res.render("pages/trend", {
 		title: "moodBUMP Trends",
 	});
 });
 
 //TOOLSPAGE
-app.get("/pages/tools", function (req, res, next) {
+app.get("/pages/tools", authenticateToken, function (req, res, next) {
 	Goal.find(function (err, goal) {
 		let active = goal.filter((goal) => goal.status === true);
 		let productivity = goal.filter((goal) => goal.name === "Productivity");
@@ -272,14 +314,14 @@ app.get("/pages/tools", function (req, res, next) {
 });
 
 //MEDITATIONPAGE
-app.get("/pages/meditation", (req, res) => {
+app.get("/pages/meditation", authenticateToken, (req, res) => {
 	res.render("pages/meditation", {
 		title: "moodBUMP Meditation Resources",
 	});
 });
 
 //MANTRAPAGE
-app.get("/pages/mantraHome", function (req, res, next) {
+app.get("/pages/mantraHome", authenticateToken, function (req, res, next) {
 	Mantra.find(function (err, mantra) {
 		console.log(mantra);
 		res.render("pages/mantraHome", {
@@ -290,7 +332,7 @@ app.get("/pages/mantraHome", function (req, res, next) {
 });
 
 //custom mantra
-app.get("/pages/mantraAdd", (req, res) => {
+app.get("/pages/mantraAdd", authenticateToken, (req, res) => {
 	Mantra.find(function (err, mantra) {
 		console.log(mantra);
 		res.render("pages/mantraAdd", {
@@ -313,7 +355,7 @@ app.post("/pages/addMantra", (req, res) => {
 });
 
 //THOUGHT JOURNAL PAGE
-app.get("/pages/thoughtJournal", (req, res) => {
+app.get("/pages/thoughtJournal", authenticateToken, (req, res) => {
 	Entry.find(function (err, entry) {
 		res.render("pages/thoughtJournal", {
 			title: "moodBUMP Thought Journal",
@@ -363,30 +405,8 @@ app.post("/deleteEntry", (req, res) => {
 		.catch((err) => res.status(404).json({ success: false }));
 });
 
-// 	Entry.find(function (err, entry) {
-// 		console.log(entry);
-// 		res.render("thoughtJournal", {
-// 			title: "moodBUMP Thought Journal Entry",
-// 			entries: entry,
-// 		});
-// 	});
-// });
-// router.get("/:id", (req, res) => {
-// 	const found = members.some((member) => member.id === parseInt(req.params.id));
-// 	if (found) {
-// 		res.json(members.filter((member) => member.id === parseInt(req.params.id)));
-// 	} else {
-// 		res.status(400).json({ msg: `No member with the id of ${req.params.id}` });
-// 	}
-// });
-// router.get("/", (req, res) => {
-// 	Goal.find()
-// 		.sort({ name: -1 }) //ascending
-// 		.then((goal) => res.json(goal));
-// });
-
 //SLEEPLOGPAGE
-app.get("/pages/sleepLog", (req, res) => {
+app.get("/pages/sleepLog", authenticateToken, (req, res) => {
 	res.render("sleepLog", {
 		title: "moodBUMP Sleep Log",
 	});
@@ -407,14 +427,14 @@ app.post("/logSleep", (req, res) => {
 });
 
 //PWOERHOURPAGE
-app.get("/pages/powerHour", (req, res) => {
+app.get("/pages/powerHour", authenticateToken, (req, res) => {
 	res.render("pages/powerHour", {
 		title: "moodBUMP Power Hour",
 	});
 });
 
 //AFFIRMATIONPAGE
-app.get("/pages/affirmationHome", function (req, res, next) {
+app.get("/pages/affirmationHome", authenticateToken, function (req, res, next) {
 	Affirmation.find(function (err, affirmation) {
 		console.log(affirmation);
 		res.render("pages/affirmationHome", {
@@ -425,7 +445,7 @@ app.get("/pages/affirmationHome", function (req, res, next) {
 });
 
 //custom affirmation
-app.get("/pages/affirmationAdd", (req, res) => {
+app.get("/pages/affirmationAdd", authenticateToken, (req, res) => {
 	Affirmation.find(function (err, affirmation) {
 		console.log(affirmation);
 		res.render("pages/affirmationAdd", {
@@ -448,7 +468,7 @@ app.post("/addAffirmation", (req, res) => {
 });
 
 //404
-app.get("*", (req, res) => {
+app.get("*", authenticateToken, (req, res) => {
 	res.render("404", {
 		title: "Error: 404 PAGE NOT FOUND",
 	});
