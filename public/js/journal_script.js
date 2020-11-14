@@ -9,14 +9,14 @@ $(function () {
 				text: "Confirm",
 				id: "confirmDelete",
 				click: function () {
-					$("#deleteJournalForm").submit();
+					$("#deleteJournalForm").submit(); //confirm entry delete
 					res.redirect("/thoughtJournal");
 				},
 			},
 			{
 				text: "Cancel",
 				click: function () {
-					$(this).dialog("close");
+					$(this).dialog("close"); //cancel delete
 				},
 			},
 		],

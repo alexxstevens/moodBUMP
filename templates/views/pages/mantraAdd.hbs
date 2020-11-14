@@ -35,7 +35,6 @@
 		<link href="/style/main.css" rel="stylesheet" />
 		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		<script rel="text/javascript" src="/js/add_script.js"></script>
 	</head>
 	<body>
 				{{>header}}
@@ -51,7 +50,7 @@
 
 			<div class="row">
 				<div class="col-sm-10 col-md-8 center-block">
-					<a href="/mantraHome" class="clr_underline"
+					<a href="pages/mantraHome" class="clr_underline"
 						><button class="btn btn-primary btn-lg btn-block" type="submit">
 							Submit New Mantra
 						</button></a
@@ -92,20 +91,20 @@
 						{{#each mantras}}
 						<!-- will populate from DB-->
 						<li class="list-group-item">
+							<form id="mantraDeleteForm" action="/deleteMantra" method="POST">
+							<input class="hidden" name="_id" value="{{_id
+							}}">
 							<p class="item">{{mantraEntry}}</p>
 							<span class="icon"
-								><button class="container" id="opener_1">
+								><button type="submit" class="container opener">
 									<i class="far fa-trash-alt"></i></button
-							></span>
+							></span></form>
 						</li>
 						{{/each}}
 					</ul>
 				</div>
 			</div>
-				
-			<div id="dialog" title="Confirm Delete">
-				Are your sure you want to delete this item?
-			</div>
+
 		</main>
 
 				{{>footer}}

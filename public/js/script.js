@@ -65,6 +65,7 @@ $(function () {
 		document.cookie = "timeStamp" + "=" + timeStamp + ";" + ";path=/pages/home";
 	}
 
+	//get timestamp cookie
 	function getRecord() {
 		let name = "timeStamp" + "=";
 		let decodedCookie = decodeURIComponent(document.cookie);
@@ -81,11 +82,15 @@ $(function () {
 		return "";
 	}
 
+	//display timestamp cookie value
 	function insertRecord() {
 		let timeStamp = getRecord();
 		//update subNote"Last recorded on:
 		document.getElementById("subNote").innerHTML = timeStamp;
 	}
+
+	//insert timestamp
+	insertRecord();
 
 	//FILL mood_value IN
 	document.getElementById("dialog").innerHTML =
@@ -98,6 +103,4 @@ $(function () {
 		document.getElementById("dialog").innerHTML =
 			"Are your sure you want to record the mood score: " + mood_value;
 	};
-
-	insertRecord();
 });
