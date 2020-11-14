@@ -16,6 +16,8 @@ const Sleep = require("../models/Sleep");
 const Entry = require("../models/Entry");
 const entries = require("../routes/api/entries");
 const User = require("../models/User");
+//const cache = require("./cache.js");
+const mcache = require("memory-cache");
 
 const app = express();
 
@@ -75,6 +77,26 @@ function authenticateToken(req, res, next) {
 		next();
 	});
 }
+
+let cache = (duration) => {
+	return (req, res, next) => {
+		let key = "_express_" + req.originalUrl || req.originalUrl;
+		let cachedBody = mcache.get(key);
+		if (cachedBody) {
+			res.send(cachedBody);
+			return;
+		} else {
+			res.sendResponse = res.send;
+			res.send = (body) => {
+				mcache.put(key, body, duration * 1000);
+				res.sendResponse(body);
+			};
+			next();
+		}
+	};
+};
+
+module.exports = cache();
 
 //Authentications
 
@@ -142,14 +164,14 @@ app.post("/register", async (req, res) => {
 
 //APP ROUTES
 //LOADPAGE
-app.get("", (req, res) => {
+app.get("", cache(10), (req, res) => {
 	res.render("index", {
 		title: "Loading moodBUMP",
 	});
 });
 
 //LOGINPAGE
-app.get("/login", (req, res) => {
+app.get("/login", cache(10), (req, res) => {
 	console.log(req.cookies);
 	res.render("login", {
 		title: "Login to moodBUMP",
@@ -157,21 +179,21 @@ app.get("/login", (req, res) => {
 });
 
 //LOGOUTPAGE
-app.get("/logout", (req, res) => {
+app.get("/logout", authenticateToken, cache(10), (req, res) => {
 	res.render("logout", {
 		title: "Logout of moodBUMP",
 	});
 });
 
 //WELCOMEPAGE
-app.get("/pages/welcome", (req, res) => {
+app.get("/pages/welcome", authenticateToken, cache(10), (req, res) => {
 	res.render("welcome", {
 		title: "Welcome to moodBUMP",
 	});
 });
 
 //HOMEPAGE
-app.get("/pages/home", authenticateToken, (req, res) => {
+app.get("/pages/home", authenticateToken, cache(10), (req, res) => {
 	Goal.find(function (err, goal) {
 		let active = goal.filter((goal) => goal.status === true);
 		res.render("pages/home", {
@@ -192,7 +214,7 @@ app.post("/moods", (req, res) => {
 });
 
 //GOALSPAGE
-app.get("/pages/goal", authenticateToken, function (req, res, next) {
+app.get("/pages/goal", authenticateToken, cache(10), function (req, res, next) {
 	Goal.find(function (err, goal) {
 		let active = goal.filter((goal) => goal.status === true);
 		let inactive = goal.filter((goal) => goal.status === false);
@@ -245,7 +267,7 @@ function toggleMinus(goal) {
 }
 
 //custom goal
-app.get("/pages/customGoal", authenticateToken, (req, res) => {
+app.get("/pages/customGoal", authenticateToken, cache(10), (req, res) => {
 	res.render("pages/customGoal", {
 		title: "Add Custom Goal",
 	});
@@ -267,7 +289,7 @@ app.post("/addGoal", (req, res) => {
 });
 
 //MANAGEGOALS PAGE
-app.get("/pages/manageGoal", authenticateToken, (req, res) => {
+app.get("/pages/manageGoal", authenticateToken, cache(10), (req, res) => {
 	Goal.find(function (err, goal) {
 		res.render("pages/manageGoal", {
 			title: "moodBUMP Manage Goals",
@@ -287,14 +309,18 @@ app.post("/deleteGoal", (req, res) => {
 });
 
 //TRENDPAGE;
-app.get("/pages/trend", authenticateToken, (req, res) => {
+app.get("/pages/trend", authenticateToken, cache(10), (req, res) => {
 	res.render("pages/trend", {
 		title: "moodBUMP Trends",
 	});
 });
 
 //TOOLSPAGE
-app.get("/pages/tools", authenticateToken, function (req, res, next) {
+app.get("/pages/tools", authenticateToken, cache(10), function (
+	req,
+	res,
+	next
+) {
 	Goal.find(function (err, goal) {
 		let active = goal.filter((goal) => goal.status === true);
 		let productivity = goal.filter((goal) => goal.name === "Productivity");
@@ -314,14 +340,18 @@ app.get("/pages/tools", authenticateToken, function (req, res, next) {
 });
 
 //MEDITATIONPAGE
-app.get("/pages/meditation", authenticateToken, (req, res) => {
+app.get("/pages/meditation", authenticateToken, cache(10), (req, res) => {
 	res.render("pages/meditation", {
 		title: "moodBUMP Meditation Resources",
 	});
 });
 
 //MANTRAPAGE
-app.get("/pages/mantraHome", authenticateToken, function (req, res, next) {
+app.get("/pages/mantraHome", authenticateToken, cache(10), function (
+	req,
+	res,
+	next
+) {
 	Mantra.find(function (err, mantra) {
 		console.log(mantra);
 		res.render("pages/mantraHome", {
@@ -332,7 +362,7 @@ app.get("/pages/mantraHome", authenticateToken, function (req, res, next) {
 });
 
 //custom mantra
-app.get("/pages/mantraAdd", authenticateToken, (req, res) => {
+app.get("/pages/mantraAdd", authenticateToken, cache(10), (req, res) => {
 	Mantra.find(function (err, mantra) {
 		console.log(mantra);
 		res.render("pages/mantraAdd", {
@@ -355,7 +385,7 @@ app.post("/pages/addMantra", (req, res) => {
 });
 
 //THOUGHT JOURNAL PAGE
-app.get("/pages/thoughtJournal", authenticateToken, (req, res) => {
+app.get("/pages/thoughtJournal", authenticateToken, cache(10), (req, res) => {
 	Entry.find(function (err, entry) {
 		res.render("pages/thoughtJournal", {
 			title: "moodBUMP Thought Journal",
@@ -406,14 +436,14 @@ app.post("/deleteEntry", (req, res) => {
 });
 
 //SLEEPLOGPAGE
-app.get("/pages/sleepLog", authenticateToken, (req, res) => {
+app.get("/pages/sleepLog", authenticateToken, cache(10), (req, res) => {
 	res.render("sleepLog", {
 		title: "moodBUMP Sleep Log",
 	});
 });
 
 //log sleep
-app.post("/logSleep", (req, res) => {
+app.post("/logSleep", cache(10), (req, res) => {
 	const newSleep = new Sleep({
 		date: req.body.date,
 		hours: req.body.hours,
@@ -427,14 +457,18 @@ app.post("/logSleep", (req, res) => {
 });
 
 //PWOERHOURPAGE
-app.get("/pages/powerHour", authenticateToken, (req, res) => {
+app.get("/pages/powerHour", authenticateToken, cache(10), (req, res) => {
 	res.render("pages/powerHour", {
 		title: "moodBUMP Power Hour",
 	});
 });
 
 //AFFIRMATIONPAGE
-app.get("/pages/affirmationHome", authenticateToken, function (req, res, next) {
+app.get("/pages/affirmationHome", authenticateToken, cache(10), function (
+	req,
+	res,
+	next
+) {
 	Affirmation.find(function (err, affirmation) {
 		console.log(affirmation);
 		res.render("pages/affirmationHome", {
@@ -445,7 +479,7 @@ app.get("/pages/affirmationHome", authenticateToken, function (req, res, next) {
 });
 
 //custom affirmation
-app.get("/pages/affirmationAdd", authenticateToken, (req, res) => {
+app.get("/pages/affirmationAdd", authenticateToken, cache(10), (req, res) => {
 	Affirmation.find(function (err, affirmation) {
 		console.log(affirmation);
 		res.render("pages/affirmationAdd", {
