@@ -32,7 +32,7 @@
 
     <main>
 <span class="icon"><button id="opener" class="info"> <i class="far fa-question-circle"></i></button></span><br>
-       {{#if mindfulness}}
+      {{#if mindfulness}}
       <div class="row">
         <div class="col-sm-10 col-md-8 center-block">
           <h3 class="heading adjust">Mindfulness Tools:</h3>
@@ -42,19 +42,18 @@
       <div class="row">
         <div class="col-sm-10 col-md-8 center-block">
           <ul class="list-group">
-            <!-- will pull from DB//onclick events will be added to dropdown to add to inactive DB or delete from DB-->
            
             <li class="list-group-item">
-              <a href="/pages/thoughtJournal">Thought Journal</a>
-              <span class="icon"><button class="container"><i class="far fa-check-circle"></i></button></span>
+              <form action="/toolTrack" method="POST"><input class="hidden" value="Thought Journal" name="toolName"><input class="hidden" value="Mindfulness " name="goal"><a href="/pages/thoughtJournal">Thought Journal</a>
+              <span class="icon"><button class="container" type="submit"><i class="far fa-check-circle"></i></button></span></form>
             </li>
             <li class="list-group-item">
-              <a href="/pages/meditation">Meditation</a>
-              <span class="icon"><button class="container"><i class="far fa-check-circle"></i></button></span>
+              <form action="/toolTrack" method="POST"><input class="hidden" value="Meditation" name="toolName"><input class="hidden" value="Mindfulness " name="goal"><a href="/pages/meditation">Meditation</a>
+              <span class="icon"><button class="container" type="submit"><i class="far fa-check-circle"></i></button></span></form>
             </li>
             <li class="list-group-item">
-              <a href="/pages/mantraHome">Mantras</a>
-              <span class="icon"><button class="container"><i class="far fa-check-circle"></i></button></span>
+              <form action="/toolTrack" method="POST"><input class="hidden" value="Mantras" name="toolName"><input class="hidden" value="Mindfulness " name="goal"><a href="/pages/mantraHome">Mantras</a>
+              <span class="icon"><button class="container" type="submit"><i class="far fa-check-circle"></i></button></span></form>
             </li>
           </ul>
         </div>
@@ -73,21 +72,22 @@
           <ul class="list-group">
             <!-- will pull from DB//onclick events will be added to dropdown to add to inactive DB or delete from DB-->
             <li class="list-group-item">
-              <a href="/pages/sleepLog">Sleep Log</a>
-              <span class="icon"><button class="container"><i class="far fa-check-circle"></i></button></span>
+              <form action="/toolTrack" method="POST"><input class="hidden" value="Sleep Log" name="toolName"><input class="hidden" value="Productivity " name="goal"><a href="/pages/sleepLog">Sleep Log</a>
+              <span class="icon"><button class="container" type="submit"><i class="far fa-check-circle"></i></button></span></form>
             </li>
             <li class="list-group-item">
-              <a href="/pages/powerHour">Power Hour</a>
-              <span class="icon"><button class="container"><i class="far fa-check-circle"></i></button></span>
+               <form action="/toolTrack" method="POST"><input class="hidden" value="Power Hour" name="toolName"><input class="hidden" value="Productivity " name="goal"><a href="/pages/powerHour">Power Hour</a>
+              <span class="icon"><button type="submit" class="container"><i class="far fa-check-circle"></i></button></span></form>
             </li>
             <li class="list-group-item">
-              <a href="/pages/affirmationHome">Affirmations</a>
-              <span class="icon"><button class="container"><i class="far fa-check-circle"></i></button></span>
+               <form action="/toolTrack" method="POST"><input class="hidden" value="Affirmations" name="toolName"><input class="hidden" value="Productivity " name="goal"><a href="/pages/affirmationHome">Affirmations</a>
+              <span class="icon"><button class="container" type="submit"><i class="far fa-check-circle"></i></button></span></form>
             </li>
           </ul>
         </div>
       </div>
       {{/if}}
+
 
       {{#each custom_tools}}
       <div class="row">
@@ -102,8 +102,8 @@
             <!-- will pull from DB//onclick events will be added to dropdown to add to inactive DB or delete from DB-->
             {{#if tool_1}}
             <li class="list-group-item">
-              <p class="item">{{tool_1}}</p>
-              <span class="icon"><button class="container"><i class="far fa-check-circle"></i></button></span>
+               <form action="/toolTrack" method="POST"><input class="hidden" value="{{tool_1}}" name="toolName"><input class="hidden" value="{{name}} " name="goal"><p class="item">{{tool_1}}</p>
+              <span class="icon"><button class="container" type="submit"><i class="far fa-check-circle"></i></button></span></form>
             </li>
             {{else}}
               <li class="list-group-item">
@@ -113,14 +113,14 @@
             {{/if}}
             {{#if tool_2}}
             <li class="list-group-item">
-              <p class="item">{{tool_2}}</p>
-              <span class="icon"><button class="container"><i class="far fa-check-circle"></i></button></span>
+              <form action="/toolTrack" method="POST"><input class="hidden" value="{{tool_2}}" name="toolName"><input class="hidden" value="{{name}} " name="goal"><p class="item">{{tool_2}}</p>
+              <span class="icon"><button class="container" type="submit"><i class="far fa-check-circle"></i></button></span></form>
             </li>
             {{/if}}
             {{#if tool_3}}
             <li class="list-group-item">
-              <p class="item">{{tool_3}}</p>
-              <span class="icon"><button class="container"><i class="far fa-check-circle"></i></button></span>
+              <form action="/toolTrack" method="POST"><input class="hidden" value="{{tool_3}}" name="toolName"><input class="hidden" value="{{name}} " name="goal"><p class="item">{{tool_3}}</p>
+              <span class="icon"><button class="container" type="submit"><i class="far fa-check-circle"></i></button></span></form>
             </li>
             {{/if}}
           </ul>
@@ -129,14 +129,15 @@
       {{/each}}
 
       <div id="dialog" title="Help">
-        Tap on tool title to navigate to tool item.  Tap on check mark to log tool completion for today.
+        Tap on tool title to navigate to tool item.  Tap on check mark to log tool completion.  You can track your completions on the "Trends" tab.
       </div>
+      </main>
       
       		{{>footer}}
 
       <script>
         $("button.container").click(function () {
-          $(this)
+          $(this) 
             .children("i")
             .toggleClass("far fa-check-circle fas fa-check-circle");
         });

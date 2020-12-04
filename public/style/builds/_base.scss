@@ -149,6 +149,15 @@ ul.list-group {
 		color: $primaryTextColor;
 		font-weight: bold;
 		font-size: 1.3em;
+		max-width: 60%;
+		min-width: 60%;
+	}
+	li.list-group-item p {
+		color: $primaryTextColor;
+		font-weight: bold;
+		font-size: 1.3em;
+		max-width: 60%;
+		min-width: 60%;
 	}
 	li.list-group-item a:hover {
 		color: black;
