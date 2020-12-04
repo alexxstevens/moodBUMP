@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-//create a Schema
+//create journal entries Schema
 const EntrySchema = new Schema({
 	journalEntry: {
 		type: String,

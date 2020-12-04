@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-//create a Schema
+//create mood Schema
 const MoodSchema = new Schema({
 	mood_value: {
 		type: Number,

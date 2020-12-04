@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-//create a Schema
+//create mantra Schema
 const MantraSchema = new Schema({
 	mantraEntry: String,
 });

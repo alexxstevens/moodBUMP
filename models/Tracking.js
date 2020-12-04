@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-//create a Schema
+//create tool use tracking Schema
 const TrackingSchema = new Schema({
 	date: String,
 	toolName: String,

@@ -1,5 +1,5 @@
 "use strict";
-//DIALOG OPTIONS - CONFIRM DELETE (JOURNAL)
+//JOUNRAL DIALOG OPTIONS
 $(function () {
 	$("#dialog").dialog({
 		autoOpen: false,
@@ -10,7 +10,7 @@ $(function () {
 				id: "confirmDelete",
 				click: function () {
 					$("#deleteJournalForm").submit(); //confirm entry delete
-					res.redirect("/thoughtJournal");
+					res.redirect("/thoughtJournal"); //return to thoughtjournal
 				},
 			},
 			{

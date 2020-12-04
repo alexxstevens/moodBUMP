@@ -42,7 +42,6 @@ function authenticateToken(req, res, next) {
 }
 
 //Authentications
-
 //login
 router.post("/login", async (req, res) => {
 	console.log(req.cookies);
@@ -305,8 +304,7 @@ router.get(
 	}
 );
 
-//find goal and put time stamp on tool
-
+//track tool completion
 router.post("/toolTrack", function (req, res, next) {
 	let toolName = req.body.toolName;
 	let goal = req.body.goal;

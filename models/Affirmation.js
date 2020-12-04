@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-//create a Schema
+//create affirmation Schema
 const AffirmationSchema = new Schema({
 	affirmationEntry: String,
 });

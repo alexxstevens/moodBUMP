@@ -1,7 +1,9 @@
 $(function () {
+	//set public key for web push notification
 	const publicVapidKey =
 		"BIQqN4EIbTwz6Z7ccUddc-Et7POkyGaCqoOmomz6kcJUQwBJZn5U62CEfltdwitrlgmlvntFo8vtrp35lLMuPJE";
 
+	//trigger notification
 	const triggerPush = document.querySelector(".trigger-push");
 
 	// Check for event and service worker
@@ -37,6 +39,7 @@ $(function () {
 		console.log("Push Sent...");
 	}
 
+	//conversion for key
 	function urlBase64ToUint8Array(base64String) {
 		const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
 		const base64 = (base64String + padding)

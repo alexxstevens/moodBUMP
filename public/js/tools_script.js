@@ -1,4 +1,4 @@
-//HELP SCRIPT (TOOLS AND CUSTOM GOAL)
+//HELP BUTTON: TOOLS AND CUSTOM GOAL
 "use strict";
 $(function () {
 	$("#dialog").dialog({
@@ -9,7 +9,7 @@ $(function () {
 				text: "OK",
 				id: "return",
 				click: function () {
-					$(this).dialog("close"); //will update to record to DB
+					$(this).dialog("close");
 				},
 			},
 		],

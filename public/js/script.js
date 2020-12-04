@@ -1,6 +1,6 @@
 "use strict";
 
-//DIALOG OPTIONS - CONFIRM ADD (HOME-MOOD LOG)
+//HOME PAGE CONFIRM MOOD DIALOG OPTIONS
 $(function () {
 	$("#dialog").dialog({
 		autoOpen: false,
@@ -10,8 +10,8 @@ $(function () {
 				text: "Confirm",
 				id: "confirmMood",
 				click: function () {
-					setRecord();
-					$("#moodForm").submit();
+					setRecord(); //set record for time stamp
+					$("#moodForm").submit(); //submit mood data
 					$(this).dialog("close");
 				},
 			},
