@@ -8,15 +8,15 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const webPush = require("web-push");
 const moods = require("../routes/api/moods");
-// const Mood = require("../models/Mood");
+const Mood = require("../models/Mood");
 const goals = require("../routes/api/goals");
-// const Goal = require("../models/Goal");
-// const Mantra = require("../models/Mantra");
-// const Affirmation = require("../models/Affirmation");
-// const Sleep = require("../models/Sleep");
-// const Entry = require("../models/Entry");
+const Goal = require("../models/Goal");
+const Mantra = require("../models/Mantra");
+const Affirmation = require("../models/Affirmation");
+const Sleep = require("../models/Sleep");
+const Entry = require("../models/Entry");
 const entries = require("../routes/api/entries");
-// const User = require("../models/User");
+const User = require("../models/User");
 const router = require("../routes/routes");
 
 const app = express();
@@ -54,15 +54,15 @@ mongoose
 	.then(() => console.log("Connected to DB :)"))
 	.catch((err) => console.log(mongoose.err));
 
-// API for future feature development
-// app.use("/api/moods", moods);
-// app.use("/api/goals", goals);
-// app.use("/api/entries", entries);
+//use api
+app.use("/api/moods", moods);
+app.use("/api/goals", goals);
+app.use("/api/entries", entries);
 
 //use router
 app.use("/", router);
 
-//generate vapid keys for web push
+//generate vapid keys
 const publicVapidKey = process.env.PUBLIC_VAPID_KEY;
 const privateVapidKey = process.env.PRIVATE_VAPID_KEY;
 
@@ -72,7 +72,7 @@ webPush.setVapidDetails(
 	privateVapidKey
 );
 
-//subscribe to for push notification
+//subscribe to route
 app.post("/subscribe", (req, res) => {
 	const subscription = req.body;
 
