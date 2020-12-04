@@ -128,13 +128,6 @@ router.get("/logout", authenticateToken, cache(10), (req, res) => {
 	});
 });
 
-//WELCOMEPAGE
-router.get("/pages/welcome", authenticateToken, cache(10), (req, res) => {
-	res.render("welcome", {
-		title: "Welcome to moodBUMP",
-	});
-});
-
 //HOMEPAGE
 router.get("/pages/home", authenticateToken, (req, res) => {
 	Goal.find(function (err, goal) {
