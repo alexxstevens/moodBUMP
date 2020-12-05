@@ -302,11 +302,12 @@ router.post("/toolTrack", function (req, res, next) {
 	let toolName = req.body.toolName;
 	let goal = req.body.goal;
 	console.log(toolName + ", " + goal);
-	let dateObj = new Date();
-	let month = dateObj.getUTCMonth() + 1; //months from 1-12
-	let day = dateObj.getUTCDate();
-	let year = dateObj.getUTCFullYear();
-	let date = month + "-" + day + "-" + year;
+	let now = new Date();
+	let month = now.getMonth() + 1;
+	let day = now.getDate();
+	let year = now.getFullYear();
+	if (day < 10) day = "0" + day;
+	let date = year + "-" + month + "-" + day;
 	console.log(date);
 	const newTracking = new Tracking({
 		date: date,
